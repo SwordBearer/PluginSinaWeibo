@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/account_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/titlebar_bg_nor"
+        android:gravity="center_vertical" >
+
+        <ImageButton
+            android:id="@+id/account_btn_new"
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_btn_new" />
+
+        <TextView
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="8"
+            android:contentDescription="@null"
+            android:gravity="center"
+            android:text="@string/account_info"
+            android:textColor="#000" />
+
+        <ImageButton
+            android:id="@+id/account_btn_home"
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_btn_home" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <xmu.swordbearer.smallraccoon.widget.AsyncImageView
+            android:id="@+id/account_img"
+            android:layout_width="80pt"
+            android:layout_height="80pt" />
+
+        <TextView
+            android:id="@+id/account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/account_img"
+            android:text="第一菜鸟的微博"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/account_btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/account_img"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_btn_attention"
+            android:text="@string/edit" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/moreitem_bg_top"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address" />
+
+        <TextView
+            android:id="@+id/account_address"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/moreitem_bg_bottom"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/description" />
+
+        <TextView
+            android:id="@+id/account_desc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="个人简介" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0dp" >
+
+            <Button
+                android:id="@+id/account_friends"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_bg_panel_above_left"
+                android:text="124\n关注" />
+
+            <Button
+                android:id="@+id/account_followers"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_bg_panel_above_right"
+                android:clickable="true"
+                android:text="1324\n粉丝" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0dp" >
+
+            <Button
+                android:id="@+id/account_statuses"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_bg_panel_below_left"
+                android:text="1243\n微博" />
+
+            <Button
+                android:id="@+id/account_favourites"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/selector_bg_panel_below_right"
+                android:clickable="true"
+                android:text="1324\n收藏" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
