@@ -6,15 +6,16 @@ import org.json.JSONException;
 
 import xmu.swordbearer.sinaplugin.R;
 import xmu.swordbearer.sinaplugin.api.AccessTokenKeeper;
+import xmu.swordbearer.sinaplugin.app.SinaWeiboApp;
 import xmu.swordbearer.sinaplugin.bean.SinaUser;
 import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
-import xmu.swordbearer.smallraccoon.widget.AsyncImageView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ public class Start extends Activity implements View.OnClickListener {
 	//
 	private View previewContainer;
 	private ProgressBar progressBar;
-	private AsyncImageView ivImg;
+	private ImageView ivImg;
 	private TextView tvName;
 	private TextView tvDesc;
 
@@ -46,7 +47,7 @@ public class Start extends Activity implements View.OnClickListener {
 
 	private void initViews() {
 		previewContainer = (View) findViewById(R.id.preview_container);
-		ivImg = (AsyncImageView) findViewById(R.id.preview_img);
+		ivImg = (ImageView) findViewById(R.id.preview_img);
 		progressBar = (ProgressBar) findViewById(R.id.preview_progressbar);
 		tvName = (TextView) findViewById(R.id.preview_name);
 		tvDesc = (TextView) findViewById(R.id.preview_desc);
@@ -67,9 +68,10 @@ public class Start extends Activity implements View.OnClickListener {
 		if (!AccessTokenKeeper.readAccessToken(this).isSessionValid()) {
 			AccountUtil.auth(this, authListener);
 			return;
+		} else {
+			AccountUtil.getAccount(this, requestListener);
+			loadWatchList();
 		}
-		AccountUtil.getAccount(this, requestListener);
-		loadWatchList();
 	}
 
 	private WeiboAuthListener authListener = new WeiboAuthListener() {
@@ -95,6 +97,8 @@ public class Start extends Activity implements View.OnClickListener {
 				Toast.makeText(Start.this, "账号登录错误!", Toast.LENGTH_LONG).show();
 				finish();
 			}
+			AccountUtil.getAccount(Start.this, requestListener);
+			loadWatchList();
 		}
 
 		@Override
@@ -139,10 +143,10 @@ public class Start extends Activity implements View.OnClickListener {
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				ivImg.loadImage(user.getProfile_image_url());
+				SinaWeiboApp.loadImage(user.getProfile_image_url(), ivImg);
+
 				tvName.setText(user.getName());
 				tvDesc.setText(user.getDescription());
-
 				tvName.setVisibility(View.VISIBLE);
 				tvDesc.setVisibility(View.VISIBLE);
 				progressBar.setVisibility(View.GONE);

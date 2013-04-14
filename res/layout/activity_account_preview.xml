@@ -52,10 +52,10 @@
         android:gravity="center_vertical"
         android:padding="10dp" >
 
-        <xmu.swordbearer.smallraccoon.widget.AsyncImageView
+        <ImageView
             android:id="@+id/preview_img"
-            android:layout_width="50pt"
-            android:layout_height="50pt" />
+            android:layout_width="48pt"
+            android:layout_height="48pt" />
 
         <ImageView
             android:id="@+id/preview_goto"
