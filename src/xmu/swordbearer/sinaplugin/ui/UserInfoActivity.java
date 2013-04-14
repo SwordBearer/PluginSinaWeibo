@@ -1,13 +1,14 @@
-package xmu.swordbearer.plugins.sinaplugin;
+package xmu.swordbearer.sinaplugin.ui;
 
 import java.io.IOException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import xmu.swordbearer.plugins.sinaplugin.bean.SinaUser;
-import xmu.swordbearer.plugins.sinaplugin.uitl.AccountUtil;
-import xmu.swordbearer.plugins.sinaplugin.uitl.FriendShipUtil;
+import xmu.swordbearer.sinaplugin.R;
+import xmu.swordbearer.sinaplugin.bean.SinaUser;
+import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
+import xmu.swordbearer.sinaplugin.uitl.FriendShipUtil;
 import xmu.swordbearer.smallraccoon.widget.AsyncImageView;
 import android.app.Activity;
 import android.content.Intent;

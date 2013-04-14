@@ -1,24 +1,21 @@
-package xmu.swordbearer.plugins.sinaplugin.uitl;
+package xmu.swordbearer.sinaplugin.uitl;
 
 import java.io.IOException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import xmu.swordbearer.plugins.sinaplugin.api.AccessTokenKeeper;
-import xmu.swordbearer.plugins.sinaplugin.api.SinaCommon;
+import xmu.swordbearer.sinaplugin.api.AccessTokenKeeper;
+import xmu.swordbearer.sinaplugin.api.SinaCommon;
 import xmu.swordbearer.smallraccoon.util.NetUtil;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 
 import com.weibo.sdk.android.Oauth2AccessToken;
 import com.weibo.sdk.android.Weibo;
 import com.weibo.sdk.android.WeiboAuthListener;
-import com.weibo.sdk.android.WeiboDialogError;
 import com.weibo.sdk.android.WeiboException;
 import com.weibo.sdk.android.api.AccountAPI;
 import com.weibo.sdk.android.api.UsersAPI;
@@ -66,13 +63,13 @@ public class AccountUtil {
 	 * @param context
 	 * @param handler
 	 */
-	public static void auth(Context context, Handler handler) {
+	public static void auth(Context context, WeiboAuthListener listener) {
 		if (NetUtil.isNetworkConnected(context)) {
 			Weibo mWeibo = Weibo.getInstance(SinaCommon.APP_KEY,
 					SinaCommon.REDIRECT_URL);
-			mWeibo.authorize(context, new AuthDialogListener(context, handler));
+			mWeibo.authorize(context, listener);
 		} else {
-			SinaCommon.handleMessage(handler, "网络未连接，无法登录", AUTH_ERROR);
+			// SinaCommon.handleMessage(handler, "网络未连接，无法登录", AUTH_ERROR);
 		}
 	}
 
@@ -154,46 +151,5 @@ public class AccountUtil {
 		Oauth2AccessToken token = AccessTokenKeeper.readAccessToken(context);
 		final UsersAPI usersAPI = new UsersAPI(token);
 		usersAPI.show(uid, listener);
-	}
-
-	private static class AuthDialogListener implements WeiboAuthListener {
-		private Context mContext;
-		private Handler mHandler;
-
-		public AuthDialogListener(Context context, Handler handler) {
-			this.mContext = context;
-			this.mHandler = handler;
-		}
-
-		@Override
-		public void onComplete(Bundle values) {
-			String token = values.getString("access_token");
-			String expires_in = values.getString("expires_in");
-			Oauth2AccessToken oauth2AccessToken = new Oauth2AccessToken(token,
-					expires_in);
-			AccessTokenKeeper.keepAccessToken(mContext, oauth2AccessToken);
-
-			if (oauth2AccessToken.isSessionValid()) {
-				mHandler.sendEmptyMessage(AUTH_COMPLETE);
-			} else {
-				mHandler.sendEmptyMessage(AUTH_ERROR);
-			}
-		}
-
-		@Override
-		public void onError(WeiboDialogError e) {
-			mHandler.sendEmptyMessage(AUTH_ERROR);
-		}
-
-		@Override
-		public void onCancel() {
-			mHandler.sendEmptyMessage(AUTH_CANCEL);
-		}
-
-		@Override
-		public void onWeiboException(WeiboException e) {
-			mHandler.sendEmptyMessage(AUTH_EXCEPTION);
-		}
-
 	}
 }

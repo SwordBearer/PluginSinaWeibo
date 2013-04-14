@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:descendantFocusability="blocksDescendants" >
 
-    <ImageView
+    <xmu.swordbearer.smallraccoon.widget.AsyncImageView
         android:id="@+id/follower_listitem__img"
         android:layout_width="48dp"
         android:layout_height="48dp"

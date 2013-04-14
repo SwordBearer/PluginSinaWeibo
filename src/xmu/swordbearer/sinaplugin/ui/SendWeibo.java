@@ -1,7 +1,8 @@
-package xmu.swordbearer.plugins.sinaplugin;
+package xmu.swordbearer.sinaplugin.ui;
 
-import xmu.swordbearer.plugins.sinaplugin.api.SinaCommon;
-import xmu.swordbearer.plugins.sinaplugin.uitl.AccountUtil;
+import xmu.swordbearer.sinaplugin.R;
+import xmu.swordbearer.sinaplugin.api.SinaCommon;
+import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;

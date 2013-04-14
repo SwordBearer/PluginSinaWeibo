@@ -1,4 +1,4 @@
-package xmu.swordbearer.plugins.sinaplugin.bean;
+package xmu.swordbearer.sinaplugin.bean;
 
 import java.io.Serializable;
 

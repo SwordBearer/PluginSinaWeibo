@@ -1,14 +1,15 @@
-package xmu.swordbearer.plugins.sinaplugin;
+package xmu.swordbearer.sinaplugin.ui;
 
 import java.io.IOException;
 
 import org.json.JSONException;
 
-import xmu.swordbearer.plugins.sinaplugin.api.SinaCommon;
-import xmu.swordbearer.plugins.sinaplugin.bean.SinaFollowerAdapter;
-import xmu.swordbearer.plugins.sinaplugin.bean.SinaFollowersList;
-import xmu.swordbearer.plugins.sinaplugin.bean.SinaUser;
-import xmu.swordbearer.plugins.sinaplugin.uitl.FriendShipUtil;
+import xmu.swordbearer.sinaplugin.R;
+import xmu.swordbearer.sinaplugin.api.SinaCommon;
+import xmu.swordbearer.sinaplugin.bean.SinaFollowerAdapter;
+import xmu.swordbearer.sinaplugin.bean.SinaFollowersList;
+import xmu.swordbearer.sinaplugin.bean.SinaUser;
+import xmu.swordbearer.sinaplugin.uitl.FriendShipUtil;
 import xmu.swordbearer.smallraccoon.widget.LiveListView;
 import xmu.swordbearer.smallraccoon.widget.LiveListView.OnMoreListener;
 import android.app.Activity;

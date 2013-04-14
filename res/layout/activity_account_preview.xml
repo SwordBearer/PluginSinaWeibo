@@ -49,8 +49,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#C0C0C0"
-        android:clickable="true"
-        android:focusable="true"
         android:gravity="center_vertical"
         android:padding="10dp" >
 
@@ -65,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_goto_details" />
+            android:src="@drawable/triangle" />
 
         <LinearLayout
             android:layout_width="fill_parent"

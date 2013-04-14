@@ -1,4 +1,4 @@
-package xmu.swordbearer.plugins.sinaplugin;
+package xmu.swordbearer.sinaplugin.ui;
 
 import android.app.Activity;
 

@@ -1,6 +1,7 @@
-package xmu.swordbearer.plugins.sinaplugin;
+package xmu.swordbearer.sinaplugin.ui;
 
-import xmu.swordbearer.plugins.sinaplugin.bean.SinaUser;
+import xmu.swordbearer.sinaplugin.R;
+import xmu.swordbearer.sinaplugin.bean.SinaUser;
 import xmu.swordbearer.smallraccoon.widget.AsyncImageView;
 import android.app.Activity;
 import android.content.Intent;
@@ -91,7 +92,7 @@ public class AccountInfo extends Activity implements
 				btnStatuses.setText(user.getStatuses_count() + "\n微博");
 				btnFavourites.setText(user.getFavourites_count() + "\n收藏");
 				ivImg.loadImage(user.getAvatar_large());
-				
+
 				tvName.setVisibility(View.VISIBLE);
 				tvDesc.setVisibility(View.VISIBLE);
 			}

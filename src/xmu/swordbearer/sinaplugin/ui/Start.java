@@ -1,17 +1,17 @@
-package xmu.swordbearer.plugins.sinaplugin;
+package xmu.swordbearer.sinaplugin.ui;
 
 import java.io.IOException;
 
 import org.json.JSONException;
 
-import xmu.swordbearer.plugins.sinaplugin.api.AccessTokenKeeper;
-import xmu.swordbearer.plugins.sinaplugin.bean.SinaUser;
-import xmu.swordbearer.plugins.sinaplugin.uitl.AccountUtil;
+import xmu.swordbearer.sinaplugin.R;
+import xmu.swordbearer.sinaplugin.api.AccessTokenKeeper;
+import xmu.swordbearer.sinaplugin.bean.SinaUser;
+import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
 import xmu.swordbearer.smallraccoon.widget.AsyncImageView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -19,6 +19,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.weibo.sdk.android.Oauth2AccessToken;
+import com.weibo.sdk.android.WeiboAuthListener;
+import com.weibo.sdk.android.WeiboDialogError;
 import com.weibo.sdk.android.WeiboException;
 import com.weibo.sdk.android.net.RequestListener;
 
@@ -62,12 +65,43 @@ public class Start extends Activity implements View.OnClickListener {
 		initViews();
 		//
 		if (!AccessTokenKeeper.readAccessToken(this).isSessionValid()) {
-			AccountUtil.auth(this, new Handler());
+			AccountUtil.auth(this, authListener);
 			return;
 		}
 		AccountUtil.getAccount(this, requestListener);
 		loadWatchList();
 	}
+
+	private WeiboAuthListener authListener = new WeiboAuthListener() {
+		@Override
+		public void onWeiboException(WeiboException arg0) {
+			finish();
+		}
+
+		@Override
+		public void onError(WeiboDialogError arg0) {
+			finish();
+		}
+
+		@Override
+		public void onComplete(Bundle values) {
+			String token = values.getString("access_token");
+			String expires_in = values.getString("expires_in");
+			Oauth2AccessToken oauth2AccessToken = new Oauth2AccessToken(token,
+					expires_in);
+			AccessTokenKeeper.keepAccessToken(Start.this, oauth2AccessToken);
+			if (oauth2AccessToken.isSessionValid()) {
+			} else {
+				Toast.makeText(Start.this, "账号登录错误!", Toast.LENGTH_LONG).show();
+				finish();
+			}
+		}
+
+		@Override
+		public void onCancel() {
+			finish();
+		}
+	};
 
 	private RequestListener requestListener = new RequestListener() {
 		@Override
@@ -112,6 +146,9 @@ public class Start extends Activity implements View.OnClickListener {
 				tvName.setVisibility(View.VISIBLE);
 				tvDesc.setVisibility(View.VISIBLE);
 				progressBar.setVisibility(View.GONE);
+
+				previewContainer.setFocusable(true);
+				previewContainer.setClickable(true);
 
 			}
 		});

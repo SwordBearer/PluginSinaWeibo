@@ -1,4 +1,4 @@
-package xmu.swordbearer.plugins.sinaplugin.api;
+package xmu.swordbearer.sinaplugin.api;
 
 import java.io.IOException;
 
