@@ -3,13 +3,14 @@ package xmu.swordbearer.sinaplugin.bean;
 import java.util.ArrayList;
 
 import xmu.swordbearer.sinaplugin.R;
-import xmu.swordbearer.smallraccoon.widget.AsyncImageView;
+import xmu.swordbearer.sinaplugin.app.SinaWeiboApp;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SinaFollowerAdapter extends BaseAdapter {
@@ -42,7 +43,7 @@ public class SinaFollowerAdapter extends BaseAdapter {
 		if (container == null) {
 			container = inflater.inflate(R.layout.list_item_follower, null);
 		}
-		AsyncImageView imageView = (AsyncImageView) container
+		ImageView imageView = (ImageView) container
 				.findViewById(R.id.follower_listitem__img);
 		TextView tvName = (TextView) container
 				.findViewById(R.id.follow_listitem_name);
@@ -50,7 +51,8 @@ public class SinaFollowerAdapter extends BaseAdapter {
 				.findViewById(R.id.follow_listitem_status);
 		Button btnWatch = (Button) container
 				.findViewById(R.id.follower_listitem_watch);
-		imageView.loadImage(user.getProfile_image_url());
+		// imageView.loadImage(user.getProfile_image_url());
+		SinaWeiboApp.loadImage(user.getProfile_image_url(), imageView);
 		tvName.setText(user.getScreen_name());
 		tvStatus.setText(user.getDescription());
 		container.setTag(user);

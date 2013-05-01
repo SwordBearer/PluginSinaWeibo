@@ -67,7 +67,6 @@ public class Start extends Activity implements View.OnClickListener {
 		//
 		if (!AccessTokenKeeper.readAccessToken(this).isSessionValid()) {
 			AccountUtil.auth(this, authListener);
-			return;
 		} else {
 			AccountUtil.getAccount(this, requestListener);
 			loadWatchList();
@@ -144,7 +143,6 @@ public class Start extends Activity implements View.OnClickListener {
 			@Override
 			public void run() {
 				SinaWeiboApp.loadImage(user.getProfile_image_url(), ivImg);
-
 				tvName.setText(user.getName());
 				tvDesc.setText(user.getDescription());
 				tvName.setVisibility(View.VISIBLE);

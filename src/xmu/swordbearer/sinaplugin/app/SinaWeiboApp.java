@@ -4,6 +4,8 @@ import xmu.swordbearer.smallraccoon.imgCache.LazyImageLoader;
 import xmu.swordbearer.smallraccoon.imgCache.LazyImageLoader.ImageLoadListener;
 import android.app.Application;
 import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -21,11 +23,12 @@ public class SinaWeiboApp extends Application {
 
 	public static void loadImage(String url, final ImageView view) {
 		view.setTag(url);
+
 		ImageLoadListener listener = new ImageLoadListener() {
 			@Override
-			public void onLoaded(String url, Bitmap bitmap) {
+			public void onLoaded(String url, final Bitmap bitmap) {
 				// 设置图片
-				Log.e(TAG, "加载图片2222");
+				Log.e(TAG, "更新揭界面！22222222");
 				view.setImageBitmap(bitmap);
 			}
 		};
