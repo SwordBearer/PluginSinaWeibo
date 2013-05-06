@@ -82,7 +82,7 @@ public class AccountUtil {
 	 */
 	public static void saveUid(Context context, long uid) {
 		SharedPreferences pref = context.getSharedPreferences(
-				SinaCommon.PREFERENCES_NAME, Context.MODE_APPEND);
+				SinaCommon.AUTH_PREFERENCES_NAME, Context.MODE_APPEND);
 		Editor editor = pref.edit();
 		editor.putLong("my_uid", uid);
 		editor.commit();
@@ -90,7 +90,7 @@ public class AccountUtil {
 
 	public static long readUid(Context context) {
 		SharedPreferences pref = context.getSharedPreferences(
-				SinaCommon.PREFERENCES_NAME, Context.MODE_APPEND);
+				SinaCommon.AUTH_PREFERENCES_NAME, Context.MODE_APPEND);
 		return pref.getLong("my_uid", -1);
 	}
 
@@ -110,6 +110,7 @@ public class AccountUtil {
 		 * 如果已经存在了我的uid，则直接获取账号信息 ,否则，需要根据token先获得userId,然后根据UserId去得到帐号信息
 		 */
 		long my_uid = readUid(context);
+		Log.e(TAG, "预读my_uid " + my_uid);
 		if (my_uid != -1) {
 			usersAPI.show(my_uid, listener);
 		} else {

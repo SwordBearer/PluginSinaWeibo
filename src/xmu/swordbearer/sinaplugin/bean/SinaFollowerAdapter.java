@@ -17,6 +17,13 @@ public class SinaFollowerAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	private ArrayList<SinaUser> list;
 
+	static class ViewHolder {
+		public ImageView mImg;
+		public TextView mName;
+		public TextView mStatus;
+		public Button mWatch;
+	}
+
 	public SinaFollowerAdapter(Context context, ArrayList<SinaUser> list) {
 		this.list = list;
 		this.inflater = LayoutInflater.from(context);
@@ -39,23 +46,26 @@ public class SinaFollowerAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int pos, View container, ViewGroup group) {
-		SinaUser user = list.get(pos);
+		ViewHolder holder;
 		if (container == null) {
 			container = inflater.inflate(R.layout.list_item_follower, null);
+			holder = new ViewHolder();
+			holder.mImg = (ImageView) container
+					.findViewById(R.id.follower_listitem__img);
+			holder.mName = (TextView) container
+					.findViewById(R.id.follow_listitem_name);
+			holder.mStatus = (TextView) container
+					.findViewById(R.id.follow_listitem_status);
+			holder.mWatch = (Button) container
+					.findViewById(R.id.follower_listitem_watch);
+			container.setTag(holder);
+		} else {
+			holder = (ViewHolder) container.getTag();
 		}
-		ImageView imageView = (ImageView) container
-				.findViewById(R.id.follower_listitem__img);
-		TextView tvName = (TextView) container
-				.findViewById(R.id.follow_listitem_name);
-		TextView tvStatus = (TextView) container
-				.findViewById(R.id.follow_listitem_status);
-		Button btnWatch = (Button) container
-				.findViewById(R.id.follower_listitem_watch);
-		// imageView.loadImage(user.getProfile_image_url());
-		SinaWeiboApp.loadImage(user.getProfile_image_url(), imageView);
-		tvName.setText(user.getScreen_name());
-		tvStatus.setText(user.getDescription());
-		container.setTag(user);
+		SinaUser user = list.get(pos);
+		SinaWeiboApp.loadImage(user.getProfile_image_url(), holder.mImg);
+		holder.mName.setText(user.getScreen_name());
+		holder.mStatus.setText(user.getDescription());
 		return container;
 	}
 }

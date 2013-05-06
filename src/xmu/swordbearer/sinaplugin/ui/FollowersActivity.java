@@ -77,7 +77,7 @@ public class FollowersActivity extends Activity implements
 			@Override
 			public void onItemClick(AdapterView<?> lisview, View item, int pos,
 					long id) {
-				SinaUser user = (SinaUser) item.getTag();
+				SinaUser user = (SinaUser) adapter.getItem((int) id);
 				Intent intent = new Intent(FollowersActivity.this,
 						UserInfoActivity.class);
 				intent.putExtra("uid", user.getId());
@@ -86,8 +86,8 @@ public class FollowersActivity extends Activity implements
 		});
 
 		loadFollowersList();
-		lvFollowers.setShowHeader(false);
-		lvFollowers.setShowFooter(true);
+		lvFollowers.isShowHeader(false);
+		lvFollowers.isShowFooter(true);
 	}
 
 	private Handler handler = new Handler() {

@@ -26,7 +26,7 @@ public class SinaCommon {
 	public static final String APP_SECRET = "d6c9838df7566a26c9f05ea04f29aa2b";
 	public static final String REDIRECT_URL = "http://www.sina.com";
 
-	public static final String PREFERENCES_NAME = "sina_weibo_prefs";
+	public static final String AUTH_PREFERENCES_NAME = "us_sina_weibo_prefs";
 
 	public static final String CACHE_PATH = "/sdcard/sinaplugin/cache";
 	public static final String CACHE_KEY_PROFILE_IMG = "sina_profile_img.cache";

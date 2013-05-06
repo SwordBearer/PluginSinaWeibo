@@ -45,6 +45,8 @@ public class Start extends Activity implements View.OnClickListener {
 	private ImageButton btnBack;
 	private ImageButton btnHome;
 
+	private int authTime = 0;
+
 	private void initViews() {
 		previewContainer = (View) findViewById(R.id.preview_container);
 		ivImg = (ImageView) findViewById(R.id.preview_img);
@@ -66,22 +68,34 @@ public class Start extends Activity implements View.OnClickListener {
 		initViews();
 		//
 		if (!AccessTokenKeeper.readAccessToken(this).isSessionValid()) {
+			Log.e(TAG, "auth()");
 			AccountUtil.auth(this, authListener);
 		} else {
+			Log.e(TAG, "getAccount()");
 			AccountUtil.getAccount(this, requestListener);
 			loadWatchList();
+		}
+	}
+
+	private void authErrorCheck() {
+		if (authTime >= 5) {
+			Toast.makeText(Start.this, "账号认证错误 ", Toast.LENGTH_LONG).show();
+			finish();
+		} else {
+			authTime++;
+			AccountUtil.getAccount(this, requestListener);
 		}
 	}
 
 	private WeiboAuthListener authListener = new WeiboAuthListener() {
 		@Override
 		public void onWeiboException(WeiboException arg0) {
-			finish();
+			authErrorCheck();
 		}
 
 		@Override
 		public void onError(WeiboDialogError arg0) {
-			finish();
+			authErrorCheck();
 		}
 
 		@Override
@@ -109,15 +123,11 @@ public class Start extends Activity implements View.OnClickListener {
 	private RequestListener requestListener = new RequestListener() {
 		@Override
 		public void onIOException(IOException arg0) {
-			// Toast.makeText(Start.this, "获取账号错误！", Toast.LENGTH_SHORT)
-			// .show();
 			finish();
 		}
 
 		@Override
 		public void onError(WeiboException arg0) {
-			// Toast.makeText(Start.this, "获取账号错误！", Toast.LENGTH_SHORT)
-			// .show();
 			finish();
 		}
 
@@ -151,7 +161,6 @@ public class Start extends Activity implements View.OnClickListener {
 
 				previewContainer.setFocusable(true);
 				previewContainer.setClickable(true);
-
 			}
 		});
 	}
@@ -161,6 +170,7 @@ public class Start extends Activity implements View.OnClickListener {
 
 	private void gotoDetails() {
 		Intent intent = new Intent(this, AccountInfo.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		intent.putExtra("cur_user", user);
 		startActivity(intent);
 	}

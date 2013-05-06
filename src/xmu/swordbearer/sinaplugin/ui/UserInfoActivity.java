@@ -98,8 +98,6 @@ public class UserInfoActivity extends Activity implements
 
 				@Override
 				public void onError(WeiboException arg0) {
-					Toast.makeText(UserInfoActivity.this, "获取账号错误！",
-							Toast.LENGTH_SHORT).show();
 					finish();
 				}
 

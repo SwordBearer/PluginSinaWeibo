@@ -24,7 +24,7 @@ public class AccessTokenKeeper {
 	 */
 	public static void keepAccessToken(Context context, Oauth2AccessToken token) {
 		SharedPreferences pref = context.getSharedPreferences(
-				SinaCommon.PREFERENCES_NAME, Context.MODE_APPEND);
+				SinaCommon.AUTH_PREFERENCES_NAME, Context.MODE_APPEND);
 		Editor editor = pref.edit();
 		editor.putString("token", token.getToken());
 		editor.putLong("expiresTime", token.getExpiresTime());
@@ -38,7 +38,7 @@ public class AccessTokenKeeper {
 	 */
 	public static void clear(Context context) {
 		SharedPreferences pref = context.getSharedPreferences(
-				SinaCommon.PREFERENCES_NAME, Context.MODE_APPEND);
+				SinaCommon.AUTH_PREFERENCES_NAME, Context.MODE_APPEND);
 		Editor editor = pref.edit();
 		editor.clear();
 		editor.commit();
@@ -53,7 +53,7 @@ public class AccessTokenKeeper {
 	public static Oauth2AccessToken readAccessToken(Context context) {
 		Oauth2AccessToken token = new Oauth2AccessToken();
 		SharedPreferences pref = context.getSharedPreferences(
-				SinaCommon.PREFERENCES_NAME, Context.MODE_APPEND);
+				SinaCommon.AUTH_PREFERENCES_NAME, Context.MODE_APPEND);
 		token.setToken(pref.getString("token", ""));
 		token.setExpiresTime(pref.getLong("expiresTime", 0));
 		return token;
