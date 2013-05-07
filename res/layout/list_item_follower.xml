@@ -5,7 +5,7 @@
     android:descendantFocusability="blocksDescendants" >
 
     <ImageView
-        android:id="@+id/follower_listitem__img"
+        android:id="@+id/follower_listitem_avatar"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentLeft="true" />
@@ -22,7 +22,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/follower_listitem_watch"
-        android:layout_toRightOf="@id/follower_listitem__img"
+        android:layout_toRightOf="@id/follower_listitem_avatar"
         android:orientation="vertical" >
 
         <TextView

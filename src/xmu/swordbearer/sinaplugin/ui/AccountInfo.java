@@ -1,15 +1,18 @@
 package xmu.swordbearer.sinaplugin.ui;
 
 import xmu.swordbearer.sinaplugin.R;
+import xmu.swordbearer.sinaplugin.app.SinaWeiboApp;
 import xmu.swordbearer.sinaplugin.bean.SinaUser;
-import xmu.swordbearer.smallraccoon.widget.AsyncImageView;
+import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * 我的个人主页
@@ -25,14 +28,13 @@ public class AccountInfo extends Activity implements
 	public static final int FRIENDSHIP_FOLLOWED_EACHOTHER = 3;// 互粉
 
 	private SinaUser user;
-
 	//
-	private AsyncImageView ivImg;
+	private ImageView ivImg;
 	private TextView tvName;// 昵称
 	private TextView tvAddr;
 	private TextView tvDesc;// 个人描述
 	private Button btnFollowers;// 粉丝
-	private Button btnFriends;
+	private Button btnFriends;// 关注
 	private Button btnStatuses;
 	private Button btnFavourites;
 
@@ -57,7 +59,7 @@ public class AccountInfo extends Activity implements
 
 		btnNew = (ImageButton) findViewById(R.id.account_btn_new);
 		btnHome = (ImageButton) findViewById(R.id.account_btn_home);
-		ivImg = (AsyncImageView) findViewById(R.id.account_img);
+		ivImg = (ImageView) findViewById(R.id.account_img);
 		tvName = (TextView) findViewById(R.id.account_name);
 		tvDesc = (TextView) findViewById(R.id.account_desc);
 		tvAddr = (TextView) findViewById(R.id.account_address);
@@ -75,6 +77,14 @@ public class AccountInfo extends Activity implements
 		btnStatuses.setOnClickListener(this);
 		btnFavourites.setOnClickListener(this);
 		btnEdit.setOnClickListener(this);
+
+		long uid = user.getId();
+		long tmpeId = AccountUtil.readUid(this);
+		if (uid == tmpeId) {
+			btnEdit.setVisibility(View.VISIBLE);
+		} else {
+			btnEdit.setVisibility(View.GONE);
+		}
 		//
 		updateAccountView();
 	}
@@ -91,7 +101,9 @@ public class AccountInfo extends Activity implements
 				btnFriends.setText(user.getFriends_count() + "\n关注");
 				btnStatuses.setText(user.getStatuses_count() + "\n微博");
 				btnFavourites.setText(user.getFavourites_count() + "\n收藏");
-				ivImg.loadImage(user.getAvatar_large());
+
+				// 加载图片
+				SinaWeiboApp.loadImage(user.getAvatar_large(), ivImg);
 
 				tvName.setVisibility(View.VISIBLE);
 				tvDesc.setVisibility(View.VISIBLE);
@@ -104,6 +116,12 @@ public class AccountInfo extends Activity implements
 		if (view == btnFollowers) {
 			Intent intent = new Intent(AccountInfo.this,
 					FollowersActivity.class);
+			intent.putExtra("uid", user.getId());
+			startActivity(intent);
+		} else if (view == btnFriends) {
+			Toast.makeText(this, "Show Friends", Toast.LENGTH_LONG).show();
+			finish();
+			Intent intent = new Intent(AccountInfo.this, FriendsActivity.class);
 			intent.putExtra("uid", user.getId());
 			startActivity(intent);
 		} else if (view == btnNew) {

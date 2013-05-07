@@ -4,11 +4,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SinaStatus extends BaseBean {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public String created_at;
 	public long id;
 	public String text;

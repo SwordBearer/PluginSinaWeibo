@@ -47,10 +47,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <xmu.swordbearer.smallraccoon.widget.AsyncImageView
+        <ImageView
             android:id="@+id/account_img"
-            android:layout_width="80pt"
-            android:layout_height="80pt" />
+            android:layout_width="60pt"
+            android:layout_height="60pt" />
 
         <TextView
             android:id="@+id/account_name"

@@ -74,6 +74,22 @@ public class FriendShipUtil {
 	}
 
 	/**
+	 * 根据uid来获取用户的关注列表
+	 * 
+	 * @param context
+	 * @param uid
+	 * @param listener
+	 * @param cursor
+	 */
+	public static void getFriends(Context context, long uid,
+			RequestListener listener, final int cursor) {
+		Oauth2AccessToken toke = AccessTokenKeeper.readAccessToken(context);
+		final FriendshipsAPI friendshipsAPI = new FriendshipsAPI(toke);
+		friendshipsAPI.friends(uid, SinaCommon.PAGE_SIZE, cursor, false,
+				listener);
+	}
+
+	/**
 	 * 获取我和对方的关系
 	 * 
 	 * @param context

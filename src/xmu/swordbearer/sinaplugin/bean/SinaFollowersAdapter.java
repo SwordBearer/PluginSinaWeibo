@@ -5,43 +5,22 @@ import java.util.ArrayList;
 import xmu.swordbearer.sinaplugin.R;
 import xmu.swordbearer.sinaplugin.app.SinaWeiboApp;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SinaFollowerAdapter extends BaseAdapter {
-	private LayoutInflater inflater;
-	private ArrayList<SinaUser> list;
+public class SinaFollowersAdapter extends SinaUsersAdapter {
+	public SinaFollowersAdapter(Context context, ArrayList<SinaUser> list) {
+		super(context, list);
+	}
 
 	static class ViewHolder {
 		public ImageView mImg;
 		public TextView mName;
 		public TextView mStatus;
 		public Button mWatch;
-	}
-
-	public SinaFollowerAdapter(Context context, ArrayList<SinaUser> list) {
-		this.list = list;
-		this.inflater = LayoutInflater.from(context);
-	}
-
-	@Override
-	public int getCount() {
-		return list.size();
-	}
-
-	@Override
-	public Object getItem(int pos) {
-		return list.get(pos);
-	}
-
-	@Override
-	public long getItemId(int id) {
-		return id;
 	}
 
 	@Override
@@ -51,7 +30,7 @@ public class SinaFollowerAdapter extends BaseAdapter {
 			container = inflater.inflate(R.layout.list_item_follower, null);
 			holder = new ViewHolder();
 			holder.mImg = (ImageView) container
-					.findViewById(R.id.follower_listitem__img);
+					.findViewById(R.id.follower_listitem_avatar);
 			holder.mName = (TextView) container
 					.findViewById(R.id.follow_listitem_name);
 			holder.mStatus = (TextView) container

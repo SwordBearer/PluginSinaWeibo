@@ -3,8 +3,6 @@ package xmu.swordbearer.sinaplugin.bean;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.graphics.Bitmap;
-
 /**
  * SinaUser 新浪用户的数据
  * 

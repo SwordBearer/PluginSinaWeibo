@@ -30,7 +30,6 @@ import com.weibo.sdk.android.net.RequestListener;
  * 预览当前登录用户的账号
  * 
  * @author SwordBearers
- * 
  */
 public class Start extends Activity implements View.OnClickListener {
 	protected static final String TAG = "PreviewActivity";

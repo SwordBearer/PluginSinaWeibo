@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-public class SinaFollowersList implements Serializable {
+public class SinaUserList implements Serializable {
 	/**
 	 * 
 	 */
