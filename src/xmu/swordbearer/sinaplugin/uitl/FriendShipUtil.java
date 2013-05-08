@@ -6,7 +6,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import xmu.swordbearer.sinaplugin.api.AccessTokenKeeper;
-import xmu.swordbearer.sinaplugin.api.SinaCommon;
 import android.content.Context;
 
 import com.weibo.sdk.android.Oauth2AccessToken;
@@ -16,6 +15,8 @@ import com.weibo.sdk.android.api.FriendshipsAPI;
 import com.weibo.sdk.android.net.RequestListener;
 
 public class FriendShipUtil {
+
+	private static final int PAGE_USER_SIZE = 40;
 
 	/**
 	 * 根据uid来获取用户的粉丝
@@ -28,8 +29,7 @@ public class FriendShipUtil {
 			final RequestListener listener, final int cursor) {
 		Oauth2AccessToken toke = AccessTokenKeeper.readAccessToken(context);
 		final FriendshipsAPI friendshipsAPI = new FriendshipsAPI(toke);
-		friendshipsAPI.followers(uid, SinaCommon.PAGE_SIZE, cursor, false,
-				listener);
+		friendshipsAPI.followers(uid, PAGE_USER_SIZE, cursor, false, listener);
 	}
 
 	/**
@@ -39,6 +39,7 @@ public class FriendShipUtil {
 	 * @param listener
 	 * @param cursor
 	 */
+	@Deprecated
 	public static void getMyFollowers(Context ctx,
 			final RequestListener listener, final int cursor) {
 		/*
@@ -62,8 +63,8 @@ public class FriendShipUtil {
 					try {
 						JSONObject json = new JSONObject(response);
 						long uid = json.getLong("uid");
-						friendshipsAPI.followers(uid, SinaCommon.PAGE_SIZE,
-								cursor, false, listener);
+						friendshipsAPI.followers(uid, PAGE_USER_SIZE, cursor,
+								false, listener);
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
@@ -85,8 +86,7 @@ public class FriendShipUtil {
 			RequestListener listener, final int cursor) {
 		Oauth2AccessToken toke = AccessTokenKeeper.readAccessToken(context);
 		final FriendshipsAPI friendshipsAPI = new FriendshipsAPI(toke);
-		friendshipsAPI.friends(uid, SinaCommon.PAGE_SIZE, cursor, false,
-				listener);
+		friendshipsAPI.friends(uid, PAGE_USER_SIZE, cursor, false, listener);
 	}
 
 	/**

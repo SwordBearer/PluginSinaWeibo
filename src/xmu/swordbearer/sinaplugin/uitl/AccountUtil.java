@@ -22,6 +22,8 @@ import com.weibo.sdk.android.api.UsersAPI;
 import com.weibo.sdk.android.net.RequestListener;
 
 /**
+ * 账户管理工具类
+ * 
  * @author swordbearer
  */
 public class AccountUtil {
@@ -37,10 +39,6 @@ public class AccountUtil {
 	public static final int ACCOUNT_COMPLETE = 0x08;
 	public static final int ACCOUNT_ERRO = 0x09;
 	public static final int ACCOUNT_EXCEPTION = 0x10;
-
-	//
-
-	/**/
 
 	/**
 	 * 检测是否已经登陆

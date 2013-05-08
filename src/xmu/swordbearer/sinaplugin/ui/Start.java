@@ -1,89 +1,35 @@
 package xmu.swordbearer.sinaplugin.ui;
 
-import java.io.IOException;
-
-import org.json.JSONException;
-
-import xmu.swordbearer.sinaplugin.R;
 import xmu.swordbearer.sinaplugin.api.AccessTokenKeeper;
-import xmu.swordbearer.sinaplugin.app.SinaWeiboApp;
-import xmu.swordbearer.sinaplugin.bean.SinaUser;
 import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.weibo.sdk.android.Oauth2AccessToken;
 import com.weibo.sdk.android.WeiboAuthListener;
 import com.weibo.sdk.android.WeiboDialogError;
 import com.weibo.sdk.android.WeiboException;
-import com.weibo.sdk.android.net.RequestListener;
 
-/**
- * 预览当前登录用户的账号
- * 
- * @author SwordBearers
- */
-public class Start extends Activity implements View.OnClickListener {
-	protected static final String TAG = "PreviewActivity";
-	private SinaUser user;
-	//
-	private View previewContainer;
-	private ProgressBar progressBar;
-	private ImageView ivImg;
-	private TextView tvName;
-	private TextView tvDesc;
+public class Start extends Activity {
+	protected static final String TAG = "Start";
 
-	private ImageButton btnBack;
-	private ImageButton btnHome;
-
-	private int authTime = 0;
-
-	private void initViews() {
-		previewContainer = (View) findViewById(R.id.preview_container);
-		ivImg = (ImageView) findViewById(R.id.preview_img);
-		progressBar = (ProgressBar) findViewById(R.id.preview_progressbar);
-		tvName = (TextView) findViewById(R.id.preview_name);
-		tvDesc = (TextView) findViewById(R.id.preview_desc);
-		btnBack = (ImageButton) findViewById(R.id.preview_btn_back);
-		btnHome = (ImageButton) findViewById(R.id.preview_btn_home);
-
-		btnBack.setOnClickListener(this);
-		btnHome.setOnClickListener(this);
-		previewContainer.setOnClickListener(this);
-
-	}
-
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.activity_account_preview);
-		initViews();
-		//
+		super.onCreate(savedInstanceState);//
 		if (!AccessTokenKeeper.readAccessToken(this).isSessionValid()) {
 			Log.e(TAG, "auth()");
 			AccountUtil.auth(this, authListener);
 		} else {
-			Log.e(TAG, "getAccount()");
-			AccountUtil.getAccount(this, requestListener);
-			loadWatchList();
+			gotoHome();
 		}
 	}
 
 	private void authErrorCheck() {
-		if (authTime >= 5) {
-			Toast.makeText(Start.this, "账号认证错误 ", Toast.LENGTH_LONG).show();
-			finish();
-		} else {
-			authTime++;
-			AccountUtil.getAccount(this, requestListener);
-		}
+		Toast.makeText(this, "账号认证错误 ", Toast.LENGTH_LONG).show();
+		finish();
 	}
 
 	private WeiboAuthListener authListener = new WeiboAuthListener() {
@@ -108,9 +54,9 @@ public class Start extends Activity implements View.OnClickListener {
 			} else {
 				Toast.makeText(Start.this, "账号登录错误!", Toast.LENGTH_LONG).show();
 				finish();
+				return;
 			}
-			AccountUtil.getAccount(Start.this, requestListener);
-			loadWatchList();
+			gotoHome();
 		}
 
 		@Override
@@ -119,72 +65,9 @@ public class Start extends Activity implements View.OnClickListener {
 		}
 	};
 
-	private RequestListener requestListener = new RequestListener() {
-		@Override
-		public void onIOException(IOException arg0) {
-			finish();
-		}
-
-		@Override
-		public void onError(WeiboException arg0) {
-			finish();
-		}
-
-		@Override
-		public void onComplete(String response) {
-			Log.e(TAG, "response " + response);
-			if (response != null && !response.equals("")) {
-				try {
-					user = SinaUser.fromJSON(response);
-					// 获得帐号后，通知AccountInfo去更新数据
-					updateAccountView();
-				} catch (JSONException e) {
-					Toast.makeText(Start.this, "获取账号错误！", Toast.LENGTH_SHORT)
-							.show();
-					finish();
-				}
-			}
-		}
-	};
-
-	private void updateAccountView() {
-		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				SinaWeiboApp.loadImage(user.getProfile_image_url(), ivImg);
-				tvName.setText(user.getName());
-				tvDesc.setText(user.getDescription());
-				tvName.setVisibility(View.VISIBLE);
-				tvDesc.setVisibility(View.VISIBLE);
-				progressBar.setVisibility(View.GONE);
-
-				previewContainer.setFocusable(true);
-				previewContainer.setClickable(true);
-			}
-		});
-	}
-
-	private void loadWatchList() {
-	}
-
-	private void gotoDetails() {
-		Intent intent = new Intent(this, AccountInfo.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-		intent.putExtra("cur_user", user);
+	private void gotoHome() {
+		Intent intent = new Intent(this, Home.class);
 		startActivity(intent);
-	}
-
-	@Override
-	public void onClick(View v) {
-		if (v == previewContainer) {
-			gotoDetails();
-		} else if (v == btnBack) {
-			finish();
-		} else if (v == btnHome) {
-			Intent intent = new Intent(this, Start.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(intent);
-			finish();
-		}
+		finish();
 	}
 }

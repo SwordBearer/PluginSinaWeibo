@@ -11,16 +11,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SinaFollowersAdapter extends SinaUsersAdapter {
+public class SinaFollowersAdapter extends BaseSinaUsersAdapter {
 	public SinaFollowersAdapter(Context context, ArrayList<SinaUser> list) {
 		super(context, list);
 	}
 
 	static class ViewHolder {
-		public ImageView mImg;
-		public TextView mName;
-		public TextView mStatus;
-		public Button mWatch;
+		ImageView mImg;
+		TextView mName;
+		TextView mStatus;
+		Button mWatch;
 	}
 
 	@Override

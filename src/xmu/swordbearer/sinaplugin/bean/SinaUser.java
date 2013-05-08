@@ -47,6 +47,11 @@ public class SinaUser extends BaseBean {
 	private int online_status;// 用户是否在线. 1 在线，0 不在线
 	private int bi_followers_count;// 互粉数
 
+	public static SinaUser fromJSON(String jsonStr) throws JSONException {
+		JSONObject jsonUser = new JSONObject(jsonStr);
+		return new SinaUser(jsonUser);
+	}
+
 	public SinaUser(JSONObject json) throws JSONException {
 		id = json.getLong("id");
 		screen_name = json.getString("screen_name");
@@ -74,11 +79,6 @@ public class SinaUser extends BaseBean {
 		follow_me = json.getBoolean("follow_me");
 		online_status = json.getInt("online_status");
 		bi_followers_count = json.getInt("bi_followers_count");
-	}
-
-	public static SinaUser fromJSON(String jsonStr) throws JSONException {
-		JSONObject json = new JSONObject(jsonStr);
-		return new SinaUser(json);
 	}
 
 	public long getId() {

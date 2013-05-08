@@ -6,7 +6,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="4"
         android:targetSdkVersion="16" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -36,6 +36,7 @@
         <activity android:name=".ui.UserInfoActivity" >
         </activity>
         <activity android:name=".ui.FriendsActivity"></activity>
+        <activity android:name=".ui.Home"></activity>
     </application>
 
 </manifest>

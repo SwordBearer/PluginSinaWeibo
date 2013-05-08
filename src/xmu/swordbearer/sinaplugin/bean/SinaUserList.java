@@ -15,15 +15,31 @@ public class SinaUserList implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static final String TAG = "SinaFollowersList";
+	private static final String TAG = "SinaUserList";
 
 	private int nextCursor = 0;// 下一页数据
 	private int previousCursor = 0;
 	private int totalNumber = 0;
-	private ArrayList<SinaUser> followers = new ArrayList<SinaUser>();
+	private ArrayList<SinaUser> users = new ArrayList<SinaUser>();
+
+	public void fromJSON(String jsonStr) throws JSONException {
+		JSONObject jsonObject = new JSONObject(jsonStr);
+		JSONArray usersArray = jsonObject.getJSONArray("users");
+		ArrayList<SinaUser> newList = new ArrayList<SinaUser>();
+		for (int i = 0; i < usersArray.length(); i++) {
+			JSONObject jsonUser = usersArray.getJSONObject(i);
+			newList.add(new SinaUser(jsonUser));
+		}
+		users.addAll(newList);
+		nextCursor = jsonObject.getInt("next_cursor");
+		previousCursor = jsonObject.getInt("previous_cursor");
+		totalNumber = jsonObject.getInt("total_number");
+		Log.e(TAG, "nextCursor " + nextCursor);
+		Log.e(TAG, "previousCursor " + previousCursor);
+	}
 
 	public ArrayList<SinaUser> getFollowers() {
-		return followers;
+		return users;
 	}
 
 	public int getNextCursor() {
@@ -38,25 +54,13 @@ public class SinaUserList implements Serializable {
 		return totalNumber;
 	}
 
+	@Deprecated
 	public void getMore() {
 	}
 
-	public void fromJSON(String jsonStr) throws JSONException {
-		JSONObject jsonObject = new JSONObject(jsonStr);
-		JSONArray usersArray = jsonObject.getJSONArray("users");
-		ArrayList<SinaUser> newList = new ArrayList<SinaUser>();
-		for (int i = 0; i < usersArray.length(); i++) {
-			JSONObject jsonUser = usersArray.getJSONObject(i);
-			newList.add(new SinaUser(jsonUser));
-		}
-		followers.addAll(newList);
-		nextCursor = jsonObject.getInt("next_cursor");
-		previousCursor = jsonObject.getInt("previous_cursor");
-		totalNumber = jsonObject.getInt("total_number");
-		Log.e(TAG, "nextCursor " + nextCursor);
-		Log.e(TAG, "previousCursor " + previousCursor);
-	}
-
+	// /**
+	// * 缓存
+	// */
 	// public void saveToCache() {
 	// new Thread(new Runnable() {
 	// @Override
@@ -67,13 +71,13 @@ public class SinaUserList implements Serializable {
 	// }).start();
 	//
 	// }
-
-	// public static SinaFollowersList fromCache() {
+	//
+	// public static SinaUserList fromCache() {
 	// Object object = CacheUtil.readCacheSerializableInSD(
 	// SinaCommon.CACHE_PATH, SinaCommon.CACHE_KEY_FOLLOWERS);
 	// if (object != null) {
-	// return (SinaFollowersList) object;
+	// return (SinaUserList) object;
 	// }
-	// return new SinaFollowersList();
+	// return new SinaUserList();
 	// }
 }

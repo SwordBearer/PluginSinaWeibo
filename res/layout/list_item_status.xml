@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <!-- 用户头像 -->
+
+    <ImageView
+        android:id="@+id/status_listitem_avater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:src="@drawable/default_status_avatar" />
+    <!-- 右侧 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <!-- 头部 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/status_listitem_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_user_name" />
+
+            <!-- 转发、评论数 -->
+
+            <TextView
+                android:id="@+id/status_listitem_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@drawable/comment_icon"
+                android:text="@string/str_zero" />
+
+            <TextView
+                android:id="@+id/status_listitem_redirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_toLeftOf="@id/status_listitem_comment"
+                android:drawableLeft="@drawable/redirect_icon"
+                android:text="@string/str_zero" />
+        </RelativeLayout>
+
+        <!-- 微博正文部分 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/status_listitem_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_weibo_content"
+                android:textColor="#6b717b" />
+
+            <ImageView
+                android:id="@+id/status_listitem_cotent_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/bg_panel_above_left_sel" />
+        </LinearLayout>
+        <!-- 微博来源 ，时间，赞 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp" >
+
+            <TextView
+                android:id="@+id/status_listitem_src"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="来自:新浪微博"
+                android:textColor="#9ba0aa"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/status_listitem_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/str_plus_1"
+                android:textColor="#9ba0aa" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/status_listitem_like"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_unlike_feed" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

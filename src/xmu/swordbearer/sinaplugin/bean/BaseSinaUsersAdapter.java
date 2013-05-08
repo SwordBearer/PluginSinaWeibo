@@ -6,11 +6,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.BaseAdapter;
 
-public abstract class SinaUsersAdapter extends BaseAdapter {
+public abstract class BaseSinaUsersAdapter extends BaseAdapter {
 	protected LayoutInflater inflater;
 	protected ArrayList<SinaUser> list;
 
-	public SinaUsersAdapter(Context context, ArrayList<SinaUser> list) {
+	public BaseSinaUsersAdapter(Context context, ArrayList<SinaUser> list) {
 		this.list = list;
 		this.inflater = LayoutInflater.from(context);
 	}

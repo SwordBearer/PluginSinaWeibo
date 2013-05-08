@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SinaFriendsAdapter extends SinaUsersAdapter {
+public class SinaFriendsAdapter extends BaseSinaUsersAdapter {
 	public SinaFriendsAdapter(Context context, ArrayList<SinaUser> list) {
 		super(context, list);
 	}

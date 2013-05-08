@@ -1,5 +1,9 @@
 package xmu.swordbearer.sinaplugin.ui;
 
+import java.io.IOException;
+
+import org.json.JSONException;
+
 import xmu.swordbearer.sinaplugin.R;
 import xmu.swordbearer.sinaplugin.app.SinaWeiboApp;
 import xmu.swordbearer.sinaplugin.bean.SinaUser;
@@ -7,12 +11,16 @@ import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.weibo.sdk.android.WeiboException;
+import com.weibo.sdk.android.net.RequestListener;
 
 /**
  * 我的个人主页
@@ -39,7 +47,6 @@ public class AccountInfo extends Activity implements
 	private Button btnFavourites;
 
 	private Button btnEdit;
-	private ImageButton btnNew;
 	private ImageButton btnHome;
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +57,7 @@ public class AccountInfo extends Activity implements
 	}
 
 	private void initViews() {
-		Intent intent = getIntent();
-		user = (SinaUser) intent.getSerializableExtra("cur_user");
-		if (user == null) {
-			finish();
-			return;
-		}
 
-		btnNew = (ImageButton) findViewById(R.id.account_btn_new);
 		btnHome = (ImageButton) findViewById(R.id.account_btn_home);
 		ivImg = (ImageView) findViewById(R.id.account_img);
 		tvName = (TextView) findViewById(R.id.account_name);
@@ -69,7 +69,6 @@ public class AccountInfo extends Activity implements
 		btnFavourites = (Button) findViewById(R.id.account_favourites);
 		btnEdit = (Button) findViewById(R.id.account_btn_edit);
 
-		btnNew.setOnClickListener(this);
 		btnHome.setOnClickListener(this);
 		ivImg.setOnClickListener(this);
 		btnFollowers.setOnClickListener(this);
@@ -78,15 +77,7 @@ public class AccountInfo extends Activity implements
 		btnFavourites.setOnClickListener(this);
 		btnEdit.setOnClickListener(this);
 
-		long uid = user.getId();
-		long tmpeId = AccountUtil.readUid(this);
-		if (uid == tmpeId) {
-			btnEdit.setVisibility(View.VISIBLE);
-		} else {
-			btnEdit.setVisibility(View.GONE);
-		}
-		//
-		updateAccountView();
+		AccountUtil.getAccount(AccountInfo.this, requestListener);
 	}
 
 	private void updateAccountView() {
@@ -107,9 +98,45 @@ public class AccountInfo extends Activity implements
 
 				tvName.setVisibility(View.VISIBLE);
 				tvDesc.setVisibility(View.VISIBLE);
+
+				long uid = user.getId();
+				long tmpeId = AccountUtil.readUid(AccountInfo.this);
+				if (uid == tmpeId) {
+					btnEdit.setVisibility(View.VISIBLE);
+				} else {
+					btnEdit.setVisibility(View.GONE);
+				}
 			}
 		});
 	}
+
+	private RequestListener requestListener = new RequestListener() {
+		@Override
+		public void onIOException(IOException arg0) {
+			finish();
+		}
+
+		@Override
+		public void onError(WeiboException arg0) {
+			finish();
+		}
+
+		@Override
+		public void onComplete(String response) {
+			Log.e(TAG, "response " + response);
+			if (response != null && !response.equals("")) {
+				try {
+					user = SinaUser.fromJSON(response);
+					// 获得帐号后，通知AccountInfo去更新数据
+					updateAccountView();
+				} catch (JSONException e) {
+					Toast.makeText(AccountInfo.this, "获取账号错误！",
+							Toast.LENGTH_SHORT).show();
+					finish();
+				}
+			}
+		}
+	};
 
 	@Override
 	public void onClick(View view) {
@@ -124,10 +151,8 @@ public class AccountInfo extends Activity implements
 			Intent intent = new Intent(AccountInfo.this, FriendsActivity.class);
 			intent.putExtra("uid", user.getId());
 			startActivity(intent);
-		} else if (view == btnNew) {
-			startActivity(new Intent(this, SendWeibo.class));
 		} else if (view == btnHome) {
-			Intent intent = new Intent(this, Start.class);
+			Intent intent = new Intent(this, Home.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			finish();

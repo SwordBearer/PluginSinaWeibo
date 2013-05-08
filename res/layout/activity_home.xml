@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/home_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/titlebar_bg_nor"
+        android:gravity="center_vertical" >
+
+        <ImageButton
+            android:id="@+id/home_btn_new"
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_btn_new" />
+
+        <Button
+            android:id="@+id/home_cat"
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="8"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:text="@string/fans_cat"
+            android:textColor="#000" />
+
+        <ImageButton
+            android:id="@+id/home_btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:clickable="false"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_btn_home"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <xmu.swordbearer.smallraccoon.widget.LiveListView
+        android:id="@+id/home_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </xmu.swordbearer.smallraccoon.widget.LiveListView>
+
+</LinearLayout>
