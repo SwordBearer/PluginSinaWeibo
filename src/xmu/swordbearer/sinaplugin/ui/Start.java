@@ -1,7 +1,7 @@
 package xmu.swordbearer.sinaplugin.ui;
 
 import xmu.swordbearer.sinaplugin.api.AccessTokenKeeper;
-import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
+import xmu.swordbearer.sinaplugin.api.AccountUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

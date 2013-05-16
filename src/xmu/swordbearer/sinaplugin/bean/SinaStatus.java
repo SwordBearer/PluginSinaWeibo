@@ -6,6 +6,7 @@ import org.json.JSONObject;
 public class SinaStatus extends BaseBean {
 	private String created_at;
 	private long id;
+	private long mid;
 	private String text;
 	private String source;
 	private boolean favorited;
@@ -15,12 +16,15 @@ public class SinaStatus extends BaseBean {
 	private int reposts_count;
 	private int comments_count;
 	private int attitudes_count;
-
 	private SinaUser user;
+	private SinaStatus retweeted_status;
+
+	private boolean isLiked = false;// 自定义属性：是否已经赞过了
 
 	public SinaStatus(JSONObject json) throws JSONException {
 		created_at = json.getString("created_at");
 		id = json.getLong("id");
+		mid = json.getLong("mid");
 		text = json.getString("text");
 		source = json.getString("source");
 		favorited = json.getBoolean("favorited");
@@ -39,11 +43,16 @@ public class SinaStatus extends BaseBean {
 		} else {
 			original_pic = null;
 		}
+		if (json.has("retweeted_status")) {
+			retweeted_status = new SinaStatus(
+					json.getJSONObject("retweeted_status"));
+		} else {
+			retweeted_status = null;
+		}
 		reposts_count = json.getInt("reposts_count");
 		comments_count = json.getInt("comments_count");
 		attitudes_count = json.getInt("attitudes_count");
-		JSONObject jsonUser = json.getJSONObject("user");
-		user = new SinaUser(jsonUser);
+		user = new SinaUser(json.getJSONObject("user"));
 	}
 
 	/**************** Getter ******************/
@@ -57,6 +66,10 @@ public class SinaStatus extends BaseBean {
 
 	public long getId() {
 		return id;
+	}
+
+	public long getMid() {
+		return mid;
 	}
 
 	public String getText() {
@@ -93,5 +106,22 @@ public class SinaStatus extends BaseBean {
 
 	public int getAttitudes_count() {
 		return attitudes_count;
+	}
+
+	public SinaStatus getRetweeted_status() {
+		return retweeted_status;
+	}
+
+	public boolean isLiked() {
+		return isLiked;
+	}
+
+	public void setLiked(boolean isLiked) {
+		this.isLiked = isLiked;
+		if (isLiked) {
+			this.attitudes_count += 1;
+		} else {
+			this.attitudes_count -= 1;
+		}
 	}
 }

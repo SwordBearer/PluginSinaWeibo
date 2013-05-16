@@ -1,12 +1,10 @@
-package xmu.swordbearer.sinaplugin.uitl;
+package xmu.swordbearer.sinaplugin.api;
 
 import java.io.IOException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import xmu.swordbearer.sinaplugin.api.AccessTokenKeeper;
-import xmu.swordbearer.sinaplugin.api.SinaCommon;
 import xmu.swordbearer.smallraccoon.util.NetUtil;
 import android.content.Context;
 import android.content.SharedPreferences;

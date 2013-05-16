@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:padding="4dp" >
 
     <!-- 用户头像 -->
 
@@ -18,7 +20,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="6dp" >
 
         <!-- 头部 -->
 
@@ -33,6 +36,73 @@
                 android:layout_height="wrap_content"
                 android:text="@string/str_user_name" />
 
+            <TextView
+                android:id="@+id/status_listitem_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="#9ba0aa"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <!-- 微博正文部分 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/status_listitem_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#6b717b" />
+
+            <ImageView
+                android:id="@+id/status_listitem_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+        <!-- 转发内容 -->
+
+        <LinearLayout
+            android:id="@+id/status_listitem_retweet_container"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/timeline_card_retweet"
+            android:orientation="vertical"
+            android:padding="4dp" >
+
+            <TextView
+                android:id="@+id/status_listitem_retweet_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#6b717b" />
+
+            <ImageView
+                android:id="@+id/status_listitem_retweet_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+        <!-- 微博来源 ，时间，赞 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" >
+
+            <TextView
+                android:id="@+id/status_listitem_src"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="来自:新浪微博"
+                android:textColor="#9ba0aa"
+                android:textSize="12sp" />
             <!-- 转发、评论数 -->
 
             <TextView
@@ -51,61 +121,6 @@
                 android:layout_toLeftOf="@id/status_listitem_comment"
                 android:drawableLeft="@drawable/redirect_icon"
                 android:text="@string/str_zero" />
-        </RelativeLayout>
-
-        <!-- 微博正文部分 -->
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/status_listitem_content"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/str_weibo_content"
-                android:textColor="#6b717b" />
-
-            <ImageView
-                android:id="@+id/status_listitem_cotent_pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/bg_panel_above_left_sel" />
-        </LinearLayout>
-        <!-- 微博来源 ，时间，赞 -->
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="4dp" >
-
-            <TextView
-                android:id="@+id/status_listitem_src"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="来自:新浪微博"
-                android:textColor="#9ba0aa"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/status_listitem_like"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="@string/str_plus_1"
-                android:textColor="#9ba0aa" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/status_listitem_like"
-                android:background="@null"
-                android:contentDescription="@null"
-                android:src="@drawable/icon_unlike_feed" />
         </RelativeLayout>
     </LinearLayout>
 

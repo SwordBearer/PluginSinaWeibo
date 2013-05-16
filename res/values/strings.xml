@@ -5,13 +5,12 @@
     <string name="str_zero">0</string>
     <string name="str_plus_1">+1</string>
     <string name="str_user_name">第一菜鸟</string>
-    <string name="str_weibo_content">微博正文微博正文微博正文微博正文微博正文微博正文微博正文微博正文微博正文微博正文微博正文微博正文微博正文微博正文微博正文</string>
 
     <!--  -->
     <string name="app_name">Us 4 Sina</string>
-    <string name="send_weibo">发送微博</string>
+    <string name="send_status">发送微博</string>
     <string name="fans_cat">全部分类</string>
-    <string name="hint_weibo">请输入微博文字(140字以内)</string>
+    <string name="hint_status">请输入微博文字(140字以内)</string>
     <string name="account_info">详细资料</string>
     <string name="account_preview">账户预览</string>
 

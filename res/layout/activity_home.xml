@@ -33,15 +33,24 @@
             android:textColor="#000" />
 
         <ImageButton
-            android:id="@+id/home_btn_home"
+            android:id="@+id/home_btn_reload"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
             android:clickable="false"
             android:contentDescription="@null"
-            android:src="@drawable/selector_btn_home"
+            android:src="@drawable/selector_btn_reload"
             android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/home_progressview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:src="@anim/progressbar"
+            android:visibility="gone" />
     </LinearLayout>
 
     <xmu.swordbearer.smallraccoon.widget.LiveListView

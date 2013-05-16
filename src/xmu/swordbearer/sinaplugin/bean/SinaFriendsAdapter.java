@@ -42,7 +42,7 @@ public class SinaFriendsAdapter extends BaseSinaUsersAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		SinaUser user = list.get(pos);
-		SinaWeiboApp.loadImage(user.getProfile_image_url(), holder.mImg);
+		SinaWeiboApp.loadImage(user.getProfile_image_url(), holder.mImg, false);
 		holder.mName.setText(user.getScreen_name());
 		holder.mStatus.setText(user.getDescription());
 		return convertView;

@@ -10,17 +10,45 @@ import org.json.JSONObject;
 import android.util.Log;
 
 public class SinaStatusList implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private static final String TAG = "SinaUserList";
 
 	private int totalNumber = 0;
-	private long firstId;// 第一条微博的ID
-	private long lastId;// 最后一条微博的ID
+	private long since_id;// 第一条微博的ID
+	private long max_id;// 最后一条微博的ID
 	private ArrayList<SinaStatus> statuses = new ArrayList<SinaStatus>();
+
+	/**
+	 * 向头部添加数据
+	 * 
+	 * @param jsonStr
+	 */
+	public int preappend(String jsonStr) {
+		int newCount = 0;// 新微博的条数
+		SinaStatusList tempList = new SinaStatusList();
+		try {
+			tempList.fromJSON(jsonStr);
+			newCount = tempList.getStatuses().size();
+			if (newCount > 0) {
+				long sinceID = tempList.getSince_id();
+				long maxID = tempList.getMax_id();
+				if (sinceID > this.since_id)
+					this.since_id = sinceID;
+				// 如果之前的数据为空，则设置max_id为此数据的最后一条
+				if (this.statuses.size() == 0)
+					this.max_id = maxID;
+				statuses.addAll(0, tempList.getStatuses());
+			}
+		} catch (JSONException e) {
+		}
+		return newCount;
+	}
 
 	/**
 	 * 向尾部追加数据
 	 * 
-	 * @param statusList
+	 * @param jsonStr
 	 * @throws JSONException
 	 */
 	public void append(String jsonStr) {
@@ -28,32 +56,11 @@ public class SinaStatusList implements Serializable {
 		try {
 			tempList.fromJSON(jsonStr);
 			if (tempList.getStatuses().size() > 0) {
-				long lastID = tempList.getLastId();
-				if (lastID < this.lastId)
-					this.lastId = lastID;
+				this.max_id = tempList.getMax_id();
 				statuses.addAll(statuses.size(), tempList.getStatuses());
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * 向头部添加数据
-	 * 
-	 * @param statusList
-	 */
-	public void preappend(String jsonStr) {
-		SinaStatusList tempList = new SinaStatusList();
-		try {
-			tempList.fromJSON(jsonStr);
-			if (tempList.getStatuses().size() > 0) {
-				long firstID = tempList.getFirstId();
-				if (firstID > this.firstId)
-					this.firstId = firstID;
-				statuses.addAll(0, tempList.getStatuses());
-			}
-		} catch (JSONException e) {
 		}
 	}
 
@@ -67,13 +74,14 @@ public class SinaStatusList implements Serializable {
 		}
 		statuses.addAll(newList);
 		totalNumber = jsonObject.getInt("total_number");
-		if (statuses.size() > 0) {
-			firstId = statuses.get(0).getId();
-			lastId = statuses.get(statuses.size() - 1).getId();
+		int statusesSize = statuses.size();
+		if (statusesSize > 0) {
+			this.since_id = statuses.get(0).getMid();
+			this.max_id = statuses.get(statusesSize - 1).getMid();
 		}
 		Log.e(TAG, "totalNumber " + totalNumber);
-		Log.e(TAG, "firstId " + firstId);
-		Log.e(TAG, "lastId " + lastId);
+		Log.e(TAG, "since_id " + since_id);
+		Log.e(TAG, "max_id " + max_id);
 	}
 
 	public ArrayList<SinaStatus> getStatuses() {
@@ -84,12 +92,12 @@ public class SinaStatusList implements Serializable {
 		return totalNumber;
 	}
 
-	public long getFirstId() {
-		return firstId;
+	public long getSince_id() {
+		return since_id;
 	}
 
-	public long getLastId() {
-		return lastId;
+	public long getMax_id() {
+		return max_id;
 	}
 
 }

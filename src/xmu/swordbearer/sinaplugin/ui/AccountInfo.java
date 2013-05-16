@@ -5,9 +5,9 @@ import java.io.IOException;
 import org.json.JSONException;
 
 import xmu.swordbearer.sinaplugin.R;
+import xmu.swordbearer.sinaplugin.api.AccountUtil;
 import xmu.swordbearer.sinaplugin.app.SinaWeiboApp;
 import xmu.swordbearer.sinaplugin.bean.SinaUser;
-import xmu.swordbearer.sinaplugin.uitl.AccountUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -94,7 +94,7 @@ public class AccountInfo extends Activity implements
 				btnFavourites.setText(user.getFavourites_count() + "\n收藏");
 
 				// 加载图片
-				SinaWeiboApp.loadImage(user.getAvatar_large(), ivImg);
+				SinaWeiboApp.loadImage(user.getAvatar_large(), ivImg, true);
 
 				tvName.setVisibility(View.VISIBLE);
 				tvDesc.setVisibility(View.VISIBLE);

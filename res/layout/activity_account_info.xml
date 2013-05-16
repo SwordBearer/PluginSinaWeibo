@@ -49,7 +49,6 @@
             android:layout_toRightOf="@id/account_img"
             android:text="第一菜鸟的微博"
             android:textStyle="bold" />
-
         <Button
             android:id="@+id/account_btn_edit"
             android:layout_width="wrap_content"

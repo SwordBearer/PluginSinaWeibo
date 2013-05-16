@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PluginSinaWeibo.iml" filepath="$PROJECT_DIR$/PluginSinaWeibo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SmallRaccoon/SmallRaccoon.iml" filepath="$PROJECT_DIR$/../SmallRaccoon/SmallRaccoon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/swordbearer_fork.sina_weibo.sdk.android.iml" filepath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/swordbearer_fork.sina_weibo.sdk.android.iml" />
+    </modules>
+  </component>
+</project>
+

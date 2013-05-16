@@ -1,7 +1,7 @@
 package xmu.swordbearer.sinaplugin.ui;
 
+import xmu.swordbearer.sinaplugin.api.FriendShipUtil;
 import xmu.swordbearer.sinaplugin.bean.SinaFollowersAdapter;
-import xmu.swordbearer.sinaplugin.uitl.FriendShipUtil;
 
 public class FollowersActivity extends BaseSinaUserListActivity {
 	@Override

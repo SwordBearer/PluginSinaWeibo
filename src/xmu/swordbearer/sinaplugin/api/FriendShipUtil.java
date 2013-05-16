@@ -1,11 +1,10 @@
-package xmu.swordbearer.sinaplugin.uitl;
+package xmu.swordbearer.sinaplugin.api;
 
 import java.io.IOException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import xmu.swordbearer.sinaplugin.api.AccessTokenKeeper;
 import android.content.Context;
 
 import com.weibo.sdk.android.Oauth2AccessToken;

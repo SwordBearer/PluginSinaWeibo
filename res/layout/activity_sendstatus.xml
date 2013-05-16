@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!-- 标题栏 -->
+
+    <LinearLayout
+        android:id="@+id/sendstatus_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/titlebar_bg_nor"
+        android:gravity="center_vertical" >
+
+        <ImageButton
+            android:id="@+id/sendstatus_btn_back"
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_btn_back" />
+
+        <TextView
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:contentDescription="@null"
+            android:gravity="center"
+            android:text="@string/send_status"
+            android:textColor="#000" />
+
+        <ImageButton
+            android:id="@+id/sendstatus_btn_send"
+            style="@style/title_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/title_btn_send" />
+    </LinearLayout>
+    <!-- 底部工具栏 -->
+
+    <LinearLayout
+        android:id="@+id/sendstatus_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/sendstatus_toolbar_bg"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp" >
+
+        <ImageButton
+            android:id="@+id/sendstatus_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/selector_sendstatus_camera" />
+
+        <ImageButton
+            android:id="@+id/sendstatus_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/selector_sendstatus_pics" />
+
+        <ImageButton
+            android:id="@+id/sendstatus_mention"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/selector_sendstatus_mention" />
+
+        <ImageButton
+            android:id="@+id/sendstatus_emotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/selector_sendstatus_emotion" />
+
+        <ImageButton
+            android:id="@+id/sendstatus_trend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/selector_sendstatus_trend" />
+    </LinearLayout>
+    <!-- 文字编辑框 -->
+
+    <EditText
+        android:id="@+id/sendstatus_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sendstatus_title"
+        android:background="@null"
+        android:gravity="left|top"
+        android:hint="@string/hint_status"
+        android:minLines="8"
+        android:singleLine="false" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/sendstatus_toolbar"
+        android:layout_below="@id/sendstatus_content"
+        android:orientation="horizontal" >
+
+        <!--
+             <GridView
+            android:id="@+id/send_status_image_gridview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        -->
+
+        <ImageView
+            android:id="@+id/sendstatus_img_preview"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:clickable="true"
+            android:contentDescription="@null" />
+    </LinearLayout>
+
+</RelativeLayout>
