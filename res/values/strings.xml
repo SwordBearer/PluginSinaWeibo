@@ -11,8 +11,11 @@
     <string name="send_status">发送微博</string>
     <string name="fans_cat">全部分类</string>
     <string name="hint_status">请输入微博文字(140字以内)</string>
-    <string name="account_info">详细资料</string>
-    <string name="account_preview">账户预览</string>
+    <!--  -->
+    <string name="tlt_account_info">详细资料</string>
+    <string name="tlt_settings">个性设置</string>
+    <string name="tlt_account_preview">个人中心</string>
+    <string name="tlt_pineduser">PinedUser</string>
 
     <!-- 账户详细 -->
     <string name="edit">编辑</string>

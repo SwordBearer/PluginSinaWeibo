@@ -4,12 +4,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SinaStatus extends BaseBean {
+	private static final long serialVersionUID = 7026873727490972977L;
+
 	private String created_at;
 	private long id;
 	private long mid;
 	private String text;
-	private String source;
-	private boolean favorited;
+	private String source = "未知";
+	private boolean favorited = false;
 	private String thumbnail_pic;
 	private String bmiddle_pic;
 	private String original_pic;
@@ -26,8 +28,13 @@ public class SinaStatus extends BaseBean {
 		id = json.getLong("id");
 		mid = json.getLong("mid");
 		text = json.getString("text");
-		source = json.getString("source");
-		favorited = json.getBoolean("favorited");
+		if (json.has("source")) {
+			source = json.getString("source");
+		}
+
+		if (json.has("favorited")) {
+			favorited = json.getBoolean("favorited");
+		}
 		if (json.has("thumbnail_pic")) {
 			thumbnail_pic = json.getString("thumbnail_pic");
 		} else {
@@ -49,10 +56,14 @@ public class SinaStatus extends BaseBean {
 		} else {
 			retweeted_status = null;
 		}
-		reposts_count = json.getInt("reposts_count");
-		comments_count = json.getInt("comments_count");
-		attitudes_count = json.getInt("attitudes_count");
-		user = new SinaUser(json.getJSONObject("user"));
+		if (json.has("reposts_count"))
+			reposts_count = json.getInt("reposts_count");
+		if (json.has("comments_count"))
+			comments_count = json.getInt("comments_count");
+		if (json.has("attitudes_count"))
+			attitudes_count = json.getInt("attitudes_count");
+		if (json.has("user"))
+			user = new SinaUser(json.getJSONObject("user"));
 	}
 
 	/**************** Getter ******************/

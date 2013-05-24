@@ -7,9 +7,10 @@
 
     <uses-sdk
         android:minSdkVersion="4"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -26,6 +27,28 @@
         android:icon="@drawable/sina_logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <receiver android:name="xmu.swordbearer.sinaplugin.pin.PinInitReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="xmu.swordbearer.sinaplugin.pin.PinReceiver" >
+            <intent-filter>
+                <action android:name="xmu.swordbearer.sinaplugin.action_start_pin" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="xmu.swordbearer.sinaplugin.pin.PinService" >
+            <intent-filter>
+                <action android:name="xmu.swordbearer.sinaplugin.action_start_pin" />
+            </intent-filter>
+        </service>
+
         <activity android:name=".ui.Start" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +65,14 @@
         <activity android:name=".ui.FriendsActivity" >
         </activity>
         <activity android:name=".ui.Home" >
+        </activity>
+        <activity android:name=".ui.Main" >
+        </activity>
+        <activity android:name=".ui.AccountPreview" >
+        </activity>
+        <activity android:name=".ui.PinedUserManage" >
+        </activity>
+        <activity android:name=".ui.Settings" >
         </activity>
     </application>
 

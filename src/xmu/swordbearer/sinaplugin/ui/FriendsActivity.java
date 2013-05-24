@@ -3,6 +3,12 @@ package xmu.swordbearer.sinaplugin.ui;
 import xmu.swordbearer.sinaplugin.api.FriendShipUtil;
 import xmu.swordbearer.sinaplugin.bean.SinaFollowersAdapter;
 
+/**
+ * 关注的用户列表
+ * 
+ * @author SwordBearer
+ * 
+ */
 public class FriendsActivity extends BaseSinaUserListActivity {
 	@Override
 	protected void initView() {
@@ -15,7 +21,6 @@ public class FriendsActivity extends BaseSinaUserListActivity {
 	@Override
 	public void loadMore() {
 		// 获取uid的关注列表
-		FriendShipUtil
-				.getFriends(this, uid, listener, userList.getNextCursor());
+		FriendShipUtil.getFriends(this, uid, listener, userList.getNextCursor());
 	}
 }

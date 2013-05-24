@@ -13,7 +13,6 @@ import xmu.swordbearer.sinaplugin.api.AccountUtil;
 import xmu.swordbearer.sinaplugin.api.SinaCommon;
 import xmu.swordbearer.sinaplugin.api.StatusUtil;
 import xmu.swordbearer.smallraccoon.util.NetUtil;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -21,15 +20,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,7 +39,12 @@ import android.widget.Toast;
 import com.weibo.sdk.android.WeiboException;
 import com.weibo.sdk.android.net.RequestListener;
 
-@TargetApi(Build.VERSION_CODES.FROYO)
+/**
+ * 发送微博
+ * 
+ * @author SwordBearer
+ * 
+ */
 public class SendWeibo extends Activity implements OnClickListener {
 	private static final String TAG = "SendWeibo";
 
@@ -65,8 +66,7 @@ public class SendWeibo extends Activity implements OnClickListener {
 		@Override
 		public void handleMessage(Message msg) {
 			dialog.dismiss();
-			Toast.makeText(SendWeibo.this, (String) msg.obj, Toast.LENGTH_SHORT)
-					.show();
+			Toast.makeText(SendWeibo.this, (String) msg.obj, Toast.LENGTH_SHORT).show();
 		}
 	};
 
@@ -145,15 +145,13 @@ public class SendWeibo extends Activity implements OnClickListener {
 	/**
 	 * 显示大图
 	 */
-	private void showBigImg() {
-	}
+	private void showBigImg() {}
 
 	/**
 	 * 选择图片
 	 */
 	private void choosePic() {
-		Intent i = new Intent(Intent.ACTION_PICK,
-				android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+		Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 		startActivityForResult(i, RESULT_LOAD_IMAGE);
 	}
 
@@ -168,42 +166,24 @@ public class SendWeibo extends Activity implements OnClickListener {
 	/**
 	 * 选择表情
 	 */
-	private void chooseEmotion() {
-	}
+	private void chooseEmotion() {}
 
 	/**
 	 * 书写话题
 	 */
-	private void writeTrend() {
-	}
+	private void writeTrend() {}
 
 	/**
 	 * [@]某一个人
 	 */
-	private void gotoMention() {
-	}
-
-	private void showImageThumbnail() {
-		// 获取缩略图
-		Bitmap bitmap = BitmapFactory.decodeFile(uploadImgPath);
-		int width = bitmap.getWidth();
-		int height = bitmap.getHeight();
-		Bitmap thumbnail = ThumbnailUtils.extractThumbnail(bitmap, width,
-				height);
-		Log.e(TAG, "SELECTED imaga path " + uploadImgPath);
-		if (uploadImgPath != null) {
-			imgPreview.setImageBitmap(thumbnail);
-		}
-	}
+	private void gotoMention() {}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK
-				&& null != data) {
+		if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
 			Uri selectedImage = data.getData();
 			String[] filePathColumn = { MediaStore.Images.Media.DATA };
-			Cursor cursor = getContentResolver().query(selectedImage,
-					filePathColumn, null, null, null);
+			Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
 			cursor.moveToFirst();
 
 			int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -215,10 +195,8 @@ public class SendWeibo extends Activity implements OnClickListener {
 			Bundle b = data.getExtras();
 			Bitmap bmp = (Bitmap) b.get("data");
 			FileOutputStream fos = null;
-			if (Environment.getExternalStorageState().equals(
-					Environment.MEDIA_MOUNTED)) {
-				File file = new File(Environment.getExternalStorageDirectory()
-						+ File.separator + System.currentTimeMillis() + ".jpg");
+			if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+				File file = new File(Environment.getExternalStorageDirectory() + File.separator + System.currentTimeMillis() + ".jpg");
 				try {
 					if (!file.exists()) {
 						file.createNewFile();
@@ -235,7 +213,6 @@ public class SendWeibo extends Activity implements OnClickListener {
 					}
 				}
 				uploadImgPath = file.getAbsolutePath();
-				Log.e(TAG, "uploadImgPath " + uploadImgPath);
 				showImageThumbnail();
 			} else {
 				Toast.makeText(this, "SD卡不可用，无法拍照", Toast.LENGTH_LONG).show();
@@ -244,25 +221,25 @@ public class SendWeibo extends Activity implements OnClickListener {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
+	private void showImageThumbnail() {
+		Bitmap originalImage = BitmapFactory.decodeFile(uploadImgPath);
+		imgPreview.setImageBitmap(originalImage);
+	}
+
 	private void sendWeibo() {
-
 		if (!NetUtil.isNetworkConnected(this)) {
-			Toast.makeText(SendWeibo.this, "网络连接异常，无法发送微博", Toast.LENGTH_LONG)
-					.show();
-
+			Toast.makeText(SendWeibo.this, "网络连接异常，无法发送微博", Toast.LENGTH_LONG).show();
 			return;
 		}
 
 		String content = "";
 		content = editText.getText().toString().trim();
 		if (content.length() == 0) {
-			Toast.makeText(SendWeibo.this, "请输入微博正文内容", Toast.LENGTH_LONG)
-					.show();
+			Toast.makeText(SendWeibo.this, "请输入微博正文内容", Toast.LENGTH_LONG).show();
 			return;
 		}
 		if (content.length() > 280) {
-			Toast.makeText(SendWeibo.this, "微博文字内容不能超过140字", Toast.LENGTH_LONG)
-					.show();
+			Toast.makeText(SendWeibo.this, "微博文字内容不能超过140字", Toast.LENGTH_LONG).show();
 			return;
 		}
 		dialog.show();
@@ -326,11 +303,9 @@ public class SendWeibo extends Activity implements OnClickListener {
 		@Override
 		public View getView(int pos, View convertView, ViewGroup group) {
 			if (convertView == null) {
-				convertView = inflater.inflate(
-						R.layout.list_item_selected_image, null);
+				convertView = inflater.inflate(R.layout.list_item_selected_image, null);
 			}
-			ImageView imageView = (ImageView) convertView
-					.findViewById(R.id.send_status_selected_image);
+			ImageView imageView = (ImageView) convertView.findViewById(R.id.send_status_selected_image);
 			if (pos < (imagePathes.size() - 1)) {
 				String path = imagePathes.get(pos);
 				Bitmap bitmap = BitmapFactory.decodeFile(path);

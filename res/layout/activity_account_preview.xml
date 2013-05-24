@@ -13,13 +13,14 @@
 
         <ImageButton
             android:id="@+id/preview_btn_back"
-            style="@style/title_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
+            android:clickable="false"
             android:contentDescription="@null"
-            android:src="@drawable/selector_btn_back" />
+            android:src="@drawable/selector_btn_back"
+            android:visibility="invisible" />
 
         <TextView
             style="@style/title_text_style"
@@ -28,20 +29,17 @@
             android:layout_weight="8"
             android:contentDescription="@null"
             android:gravity="center"
-            android:text="@string/account_info"
+            android:text="@string/tlt_account_info"
             android:textColor="#000" />
 
         <ImageButton
-            android:id="@+id/preview_btn_home"
-            style="@style/title_text_style"
+            android:id="@+id/preview_btn_refresh"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@null"
-            android:clickable="false"
             android:contentDescription="@null"
-            android:src="@drawable/selector_btn_home"
-            android:visibility="invisible" />
+            android:src="@drawable/selector_btn_reload" />
     </LinearLayout>
 
     <RelativeLayout
@@ -54,8 +52,8 @@
 
         <ImageView
             android:id="@+id/preview_img"
-            android:layout_width="48pt"
-            android:layout_height="48pt" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/preview_goto"
@@ -107,7 +105,7 @@
     <ListView
         android:id="@+id/preview_watchlist"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:cacheColorHint="#0000" />
 
 </LinearLayout>

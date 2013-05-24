@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import xmu.swordbearer.smallraccoon.cache.CacheUtil;
+import android.content.Context;
 import android.util.Log;
 
 public class SinaStatusList implements Serializable {
@@ -18,6 +20,8 @@ public class SinaStatusList implements Serializable {
 	private long since_id;// 第一条微博的ID
 	private long max_id;// 最后一条微博的ID
 	private ArrayList<SinaStatus> statuses = new ArrayList<SinaStatus>();
+
+	private static final String CACHE_KEY = "sinaweibo_cache_statuslist";
 
 	/**
 	 * 向头部添加数据
@@ -98,6 +102,25 @@ public class SinaStatusList implements Serializable {
 
 	public long getMax_id() {
 		return max_id;
+	}
+
+	/**
+	 * 将微博数据缓存
+	 * 
+	 * @param context
+	 */
+	public void saveCache(Context context) {
+		CacheUtil.saveCache(context, CACHE_KEY, this);
+	}
+
+	/**
+	 * 从微博中读取缓存
+	 * 
+	 * @param context
+	 */
+	public void readCache(Context context) {
+		SinaStatusList tempList = (SinaStatusList) CacheUtil.readCache(context, CACHE_KEY);
+		statuses.addAll(statuses.size(), tempList.getStatuses());
 	}
 
 }

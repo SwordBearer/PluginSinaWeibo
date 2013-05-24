@@ -11,6 +11,15 @@
         android:background="@drawable/titlebar_bg_nor"
         android:gravity="center_vertical" >
 
+        <ImageButton
+            android:id="@+id/account_btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_btn_back" />
+
         <TextView
             style="@style/title_text_style"
             android:layout_width="wrap_content"
@@ -18,12 +27,11 @@
             android:layout_weight="9"
             android:contentDescription="@null"
             android:gravity="center"
-            android:text="@string/account_info"
+            android:text="@string/tlt_account_info"
             android:textColor="#000" />
 
         <ImageButton
             android:id="@+id/account_btn_home"
-            style="@style/title_text_style"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -47,8 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/account_img"
-            android:text="第一菜鸟的微博"
             android:textStyle="bold" />
+
         <Button
             android:id="@+id/account_btn_edit"
             android:layout_width="wrap_content"
@@ -56,7 +64,8 @@
             android:layout_alignBottom="@id/account_img"
             android:layout_alignParentRight="true"
             android:background="@drawable/selector_btn_attention"
-            android:text="@string/edit" />
+            android:text="@string/edit"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <LinearLayout
@@ -91,8 +100,7 @@
         <TextView
             android:id="@+id/account_desc"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="个人简介" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout

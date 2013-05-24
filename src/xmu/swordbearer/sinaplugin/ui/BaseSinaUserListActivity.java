@@ -26,8 +26,7 @@ import android.widget.Toast;
 import com.weibo.sdk.android.WeiboException;
 import com.weibo.sdk.android.net.RequestListener;
 
-public abstract class BaseSinaUserListActivity extends Activity implements
-		android.view.View.OnClickListener {
+public abstract class BaseSinaUserListActivity extends Activity implements android.view.View.OnClickListener {
 	protected static final String TAG = "BaseSinaUserListActivity";
 	protected LiveListView lvUsers;
 	protected SinaUserList userList;
@@ -57,8 +56,7 @@ public abstract class BaseSinaUserListActivity extends Activity implements
 
 		Intent intent = getIntent();
 		uid = intent.getLongExtra("uid", -1);
-		Toast.makeText(BaseSinaUserListActivity.this, "当前用户的Id 是 " + uid,
-				Toast.LENGTH_LONG).show();
+		Toast.makeText(BaseSinaUserListActivity.this, "当前用户的Id 是 " + uid, Toast.LENGTH_LONG).show();
 		if (uid == -1) {
 			finish();
 			return;
@@ -76,11 +74,9 @@ public abstract class BaseSinaUserListActivity extends Activity implements
 		});
 		lvUsers.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> lisview, View item, int pos,
-					long id) {
+			public void onItemClick(AdapterView<?> lisview, View item, int pos, long id) {
 				SinaUser user = (SinaUser) userAdapter.getItem((int) id);
-				Intent intent = new Intent(BaseSinaUserListActivity.this,
-						AccountInfo.class);
+				Intent intent = new Intent(BaseSinaUserListActivity.this, AccountInfo.class);
 				intent.putExtra("cur_user", user);
 				startActivity(intent);
 			}
@@ -94,20 +90,17 @@ public abstract class BaseSinaUserListActivity extends Activity implements
 				userAdapter.notifyDataSetChanged();
 				lvUsers.onMoreComplete();
 
-				btnCat.setText("(" + userList.getFollowers().size() + "/"
-						+ userList.getTotalNumber() + ")");
+				btnCat.setText("(" + userList.getFollowers().size() + "/" + userList.getTotalNumber() + ")");
 				int nextCursor = userList.getNextCursor();
 				/*
-				 * 新浪微博会自动过滤掉垃圾用户，所以一次返回的数据可能少于 PAGE_SIZE[40]
-				 * 查询第一页时，nextCursor=0;查询至最后一页时,nextCursor也是0
+				 * 新浪微博会自动过滤掉垃圾用户，所以一次返回的数据可能少于 PAGE_SIZE[40] 查询第一页时，nextCursor=0;查询至最后一页时,nextCursor也是0
 				 */
 				if (nextCursor == 0 && userList.getFollowers().size() > 0) {
 					lvUsers.noMore();
 					return;
 				}
 			} else if (msg.what == SinaCommon.GET_USER_ERROR) {
-				Toast.makeText(BaseSinaUserListActivity.this, "获取数据失败...",
-						Toast.LENGTH_LONG).show();
+				Toast.makeText(BaseSinaUserListActivity.this, "获取数据失败...", Toast.LENGTH_LONG).show();
 			} else {
 				super.handleMessage(msg);
 			}
@@ -116,12 +109,10 @@ public abstract class BaseSinaUserListActivity extends Activity implements
 
 	protected RequestListener listener = new RequestListener() {
 		@Override
-		public void onIOException(IOException arg0) {
-		}
+		public void onIOException(IOException arg0) {}
 
 		@Override
-		public void onError(WeiboException arg0) {
-		}
+		public void onError(WeiboException arg0) {}
 
 		@Override
 		public void onComplete(String response) {
@@ -140,7 +131,7 @@ public abstract class BaseSinaUserListActivity extends Activity implements
 		if (view == btnBack) {
 			finish();
 		} else if (view == btnHome) {
-			Intent intent = new Intent(this, Start.class);
+			Intent intent = new Intent(this, Main.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			finish();

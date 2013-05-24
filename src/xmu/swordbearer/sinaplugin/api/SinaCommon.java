@@ -23,6 +23,10 @@ public class SinaCommon {
 	public static final String CACHE_KEY_PROFILE_IMG = "sina_profile_img.cache";
 	public static final String CACHE_KEY_FOLLOWERS = "sina_followers.cache";
 
+	public static final String CACEH_KEY_CUR_ACCOUNT = "sina_cur_user";
+
+	public static final int PAGE_STATUS_SIZE = 20;
+
 	/**
 	 * 事件结果处理消息
 	 */
@@ -32,12 +36,13 @@ public class SinaCommon {
 	// 获取微博
 	public static final int GET_MORE_STATUS_COMPLETE = 0x03;
 	public static final int GET_REFRESH_STATUS_COMPLETE = 0x04;
-	public static final int GET_STATUS_ERROR = 0x05;
+	public static final int GET_CACHED_STATUS_COMPLETE = 0x05;
+	public static final int GET_STATUS_ERROR = 0x06;
 
 	// 发送微博的结果：完成，错误，异常
-	public static final int SEND_STATUS_COMPLETE = 0x06;
-	public static final int SEND_STATUS_ERROR = 0x07;
-	public static final int SEND_STATUS_EXCEPTION = 0x08;
+	public static final int SEND_STATUS_COMPLETE = 0x07;
+	public static final int SEND_STATUS_ERROR = 0x08;
+	public static final int SEND_STATUS_EXCEPTION = 0x09;
 
 	/**
 	 * 消息处理
@@ -55,17 +60,12 @@ public class SinaCommon {
 
 	/****************************** Account Manage ********************************/
 
-	public static void getFans(Context context, final Handler handler) {
-	}
+	public static void getFans(Context context, final Handler handler) {}
 
-	public static void getGuanzhus(Context context, final Handler handler) {
-	}
+	public static void getGuanzhus(Context context, final Handler handler) {}
 
-	public static void getFavorites(Context context, final Handler handler) {
-	}
+	public static void getFavorites(Context context, final Handler handler) {}
 
-	public static void getNewsOfUser(Context context, final Handler handler,
-			long uid) {
-	}
+	public static void getNewsOfUser(Context context, final Handler handler, long uid) {}
 
 }

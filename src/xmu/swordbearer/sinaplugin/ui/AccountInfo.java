@@ -27,15 +27,14 @@ import com.weibo.sdk.android.net.RequestListener;
  * 
  * @author swordbearer
  */
-public class AccountInfo extends Activity implements
-		android.view.View.OnClickListener {
+public class AccountInfo extends Activity implements android.view.View.OnClickListener {
 	protected static final String TAG = "AccountInfo";
+	//
+	// public static final int FRIENDSHIP_FOLLOWED_BY = 1;// 我被target关注
+	// public static final int FRIENDSHIP_FOLLOWING = 2;// 我关注了target
+	// public static final int FRIENDSHIP_FOLLOWED_EACHOTHER = 3;// 互粉
 
-	public static final int FRIENDSHIP_FOLLOWED_BY = 1;// 我被target关注
-	public static final int FRIENDSHIP_FOLLOWING = 2;// 我关注了target
-	public static final int FRIENDSHIP_FOLLOWED_EACHOTHER = 3;// 互粉
-
-	private SinaUser user;
+	private SinaUser user = null;
 	//
 	private ImageView ivImg;
 	private TextView tvName;// 昵称
@@ -47,6 +46,7 @@ public class AccountInfo extends Activity implements
 	private Button btnFavourites;
 
 	private Button btnEdit;
+	private ImageButton btnBack;
 	private ImageButton btnHome;
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class AccountInfo extends Activity implements
 	}
 
 	private void initViews() {
-
+		btnBack = (ImageButton) findViewById(R.id.account_btn_back);
 		btnHome = (ImageButton) findViewById(R.id.account_btn_home);
 		ivImg = (ImageView) findViewById(R.id.account_img);
 		tvName = (TextView) findViewById(R.id.account_name);
@@ -69,6 +69,7 @@ public class AccountInfo extends Activity implements
 		btnFavourites = (Button) findViewById(R.id.account_favourites);
 		btnEdit = (Button) findViewById(R.id.account_btn_edit);
 
+		btnBack.setOnClickListener(this);
 		btnHome.setOnClickListener(this);
 		ivImg.setOnClickListener(this);
 		btnFollowers.setOnClickListener(this);
@@ -77,7 +78,22 @@ public class AccountInfo extends Activity implements
 		btnFavourites.setOnClickListener(this);
 		btnEdit.setOnClickListener(this);
 
-		AccountUtil.getAccount(AccountInfo.this, requestListener);
+		Intent intent = this.getIntent();
+		user = (SinaUser) intent.getSerializableExtra("cur_user");
+		long uid = -1;
+		if (user == null) {
+			uid = intent.getLongExtra("uid", -1);
+			Log.e(TAG, "此时的uid 是" + uid);
+			Toast.makeText(AccountInfo.this, "当前用户的Id 是 " + uid, Toast.LENGTH_LONG).show();
+			if (uid == -1) {
+				Toast.makeText(this, "获取账号信息错误...", Toast.LENGTH_LONG).show();
+				finish();
+				return;
+			}
+		} else {
+			uid = user.getId();
+		}
+		AccountUtil.getAccount(AccountInfo.this, uid, requestListener);
 	}
 
 	private void updateAccountView() {
@@ -130,8 +146,7 @@ public class AccountInfo extends Activity implements
 					// 获得帐号后，通知AccountInfo去更新数据
 					updateAccountView();
 				} catch (JSONException e) {
-					Toast.makeText(AccountInfo.this, "获取账号错误！",
-							Toast.LENGTH_SHORT).show();
+					Toast.makeText(AccountInfo.this, "获取账号错误！", Toast.LENGTH_SHORT).show();
 					finish();
 				}
 			}
@@ -141,20 +156,20 @@ public class AccountInfo extends Activity implements
 	@Override
 	public void onClick(View view) {
 		if (view == btnFollowers) {
-			Intent intent = new Intent(AccountInfo.this,
-					FollowersActivity.class);
+			Intent intent = new Intent(AccountInfo.this, FollowersActivity.class);
 			intent.putExtra("uid", user.getId());
 			startActivity(intent);
 		} else if (view == btnFriends) {
 			Toast.makeText(this, "Show Friends", Toast.LENGTH_LONG).show();
-			finish();
 			Intent intent = new Intent(AccountInfo.this, FriendsActivity.class);
 			intent.putExtra("uid", user.getId());
 			startActivity(intent);
 		} else if (view == btnHome) {
-			Intent intent = new Intent(this, Home.class);
+			Intent intent = new Intent(this, Main.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
+			finish();
+		} else if (view == btnBack) {
 			finish();
 		}
 	}

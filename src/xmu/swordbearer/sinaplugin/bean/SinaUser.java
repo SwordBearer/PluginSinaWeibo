@@ -10,10 +10,7 @@ import org.json.JSONObject;
  * 
  */
 public class SinaUser extends BaseBean {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8114538439595607908L;
 
 	private long id;
 	private String screen_name;// 用户昵称
@@ -23,7 +20,6 @@ public class SinaUser extends BaseBean {
 	private int city;
 	private String location;
 	private String description;
-
 	//
 	private String url;// 博客地址
 	private String profile_image_url;// 头像地址
@@ -36,9 +32,9 @@ public class SinaUser extends BaseBean {
 	private int favourites_count;// 收藏数
 	//
 	private String created_at;// 用户创建时间
-	private boolean following;// false
+	// private boolean following;// false暂未支持
 	private boolean verified;// 是否认证用户
-	// public String remark;// 备注信息
+	public String remark;// 备注信息
 
 	//
 	private boolean allow_all_comment;// 是否允许所有人对我评论
@@ -61,19 +57,26 @@ public class SinaUser extends BaseBean {
 		city = json.getInt("city");
 		location = json.getString("location");
 		description = json.getString("description");
+		//
+		url = json.getString("url");
 		profile_image_url = json.getString("profile_image_url");
 		domain = json.getString("domain");
-
 		gender = json.getString("gender");
+		//
 		followers_count = json.getInt("followers_count");
 		friends_count = json.getInt("friends_count");
 		statuses_count = json.getInt("statuses_count");
 		favourites_count = json.getInt("favourites_count");
-
+		//
 		created_at = json.getString("created_at");
-		following = json.getBoolean("following");
+		// following = json.getBoolean("following");
 		verified = json.getBoolean("verified");
-
+		if (json.has("remark")) {
+			remark = json.getString("remark");
+		} else {
+			remark = null;
+		}
+		//
 		allow_all_comment = json.getBoolean("allow_all_comment");
 		avatar_large = json.getString("avatar_large");
 		follow_me = json.getBoolean("follow_me");
@@ -209,14 +212,6 @@ public class SinaUser extends BaseBean {
 		this.created_at = created_at;
 	}
 
-	public boolean isFollowing() {
-		return following;
-	}
-
-	public void setFollowing(boolean following) {
-		this.following = following;
-	}
-
 	public boolean isVerified() {
 		return verified;
 	}
@@ -265,4 +260,11 @@ public class SinaUser extends BaseBean {
 		this.bi_followers_count = bi_followers_count;
 	}
 
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 }

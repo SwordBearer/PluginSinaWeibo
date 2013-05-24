@@ -114,7 +114,6 @@ public class SinaStatusAdapter extends BaseAdapter {
 		holder.tvContent.setText(status.getText());
 		holder.tvTime.setText(CalendarUtil.GMT2String(status.getCreated_at()));
 		holder.tvSrc.setText("来自:" + Html.fromHtml(status.getSource()));
-
 		return convertView;
 	}
 }

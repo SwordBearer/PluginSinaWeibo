@@ -7,16 +7,19 @@ import xmu.swordbearer.sinaplugin.api.SinaCommon;
 import xmu.swordbearer.sinaplugin.api.StatusUtil;
 import xmu.swordbearer.sinaplugin.bean.SinaStatusAdapter;
 import xmu.swordbearer.sinaplugin.bean.SinaStatusList;
+import xmu.swordbearer.smallraccoon.util.NetUtil;
 import xmu.swordbearer.smallraccoon.widget.LiveListView;
 import xmu.swordbearer.smallraccoon.widget.LiveListView.OnMoreListener;
 import xmu.swordbearer.smallraccoon.widget.LiveListView.OnRefreshListener;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -24,8 +27,15 @@ import android.widget.Toast;
 import com.weibo.sdk.android.WeiboException;
 import com.weibo.sdk.android.net.RequestListener;
 
+/**
+ * 主页：显示关注的用户的微博
+ * 
+ * @author SwordBearer
+ * 
+ */
 public class Home extends Activity implements android.view.View.OnClickListener {
 	private static final String TAG = "Home";
+
 	private LiveListView lvStatuses;
 	private SinaStatusAdapter statusAdapter;
 	private SinaStatusList statusList;
@@ -33,21 +43,20 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 	private ImageButton btnNew;
 	private ImageButton btnReload;
 	private ImageView progressView;
-	private AnimationDrawable animationDrawable;
+	Animation progressAnim;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_home);
-
-		initView();
+		Log.e(TAG, "FUCKFDFDSF");
+		initViews();
 	}
 
-	private void initView() {
+	private void initViews() {
 		btnNew = (ImageButton) findViewById(R.id.home_btn_new);
 		btnReload = (ImageButton) findViewById(R.id.home_btn_reload);
 		progressView = (ImageView) findViewById(R.id.home_progressview);
-
 		lvStatuses = (LiveListView) findViewById(R.id.home_listview);
 		lvStatuses.isShowFooter(true);
 		lvStatuses.isShowHeader(true);
@@ -68,10 +77,11 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 			}
 		});
 
+		progressAnim = AnimationUtils.loadAnimation(this, R.anim.loading);
 		statusList = new SinaStatusList();
 		statusAdapter = new SinaStatusAdapter(this, statusList.getStatuses());
 		lvStatuses.setAdapter(statusAdapter);
-
+		//
 		reload();
 	}
 
@@ -79,35 +89,49 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 	 * 加载更多
 	 */
 	private void getMoreStatus() {
-		showProgress(true);
-		// -1 防止重复添加最后一条
-		StatusUtil.getFriendsTimeline(this, 0, statusList.getMax_id() - 1,
-				listenerMore);
+		if (NetUtil.isNetworkConnected(this)) {
+			showProgress(true);
+			// -1 防止重复添加最后一条
+			StatusUtil.getFriendsTimeline(this, 0, statusList.getMax_id() - 1, SinaCommon.PAGE_STATUS_SIZE, listenerMore);
+		} else {
+			Toast.makeText(this, "未连接到网络，无法获取最更多微博...", Toast.LENGTH_LONG).show();
+			lvStatuses.onMoreComplete();
+			showProgress(false);
+		}
 	}
 
 	/**
 	 * 加载最新微博
 	 */
 	private void reload() {
+		lvStatuses.setSelection(0);
 		showProgress(true);
-		StatusUtil.getFriendsTimeline(this, statusList.getSince_id(), 0,
-				listenerRefresh);
+		if (NetUtil.isNetworkConnected(this)) {
+			StatusUtil.getFriendsTimeline(this, statusList.getSince_id(), 0, SinaCommon.PAGE_STATUS_SIZE, listenerRefresh);
+		} else {
+			Toast.makeText(this, "未连接到网络，无法获取最新微博...", Toast.LENGTH_LONG).show();
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					statusList.readCache(Home.this);
+					handler.sendEmptyMessage(SinaCommon.GET_CACHED_STATUS_COMPLETE);
+				}
+			}).start();
+		}
 	}
 
 	private void showProgress(final boolean isLoading) {
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				animationDrawable = (AnimationDrawable) progressView
-						.getDrawable();
 				if (isLoading) {
 					btnReload.setVisibility(View.GONE);
+					progressView.setAnimation(progressAnim);
 					progressView.setVisibility(View.VISIBLE);
-					animationDrawable.start();
 				} else {
 					btnReload.setVisibility(View.VISIBLE);
 					progressView.setVisibility(View.GONE);
-					animationDrawable.stop();
+					progressView.clearAnimation();
 				}
 			}
 		});
@@ -138,10 +162,13 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 		@Override
 		public void handleMessage(Message msg) {
 			if (msg.what == SinaCommon.GET_REFRESH_STATUS_COMPLETE) {
+				Log.i(TAG, "获取最新数据完毕");
 				updateList();
 				// 显示最新条数
 				showNewStatusCount(msg.arg1);
 			} else if (msg.what == SinaCommon.GET_MORE_STATUS_COMPLETE) {
+				updateList();
+			} else if (msg.what == SinaCommon.GET_CACHED_STATUS_COMPLETE) {
 				updateList();
 			} else {
 				super.handleMessage(msg);
@@ -151,12 +178,10 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 
 	private RequestListener listenerRefresh = new RequestListener() {
 		@Override
-		public void onIOException(IOException arg0) {
-		}
+		public void onIOException(IOException arg0) {}
 
 		@Override
-		public void onError(WeiboException arg0) {
-		}
+		public void onError(WeiboException arg0) {}
 
 		@Override
 		public void onComplete(String response) {
@@ -170,12 +195,10 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 	private RequestListener listenerMore = new RequestListener() {
 
 		@Override
-		public void onIOException(IOException arg0) {
-		}
+		public void onIOException(IOException arg0) {}
 
 		@Override
-		public void onError(WeiboException arg0) {
-		}
+		public void onError(WeiboException arg0) {}
 
 		@Override
 		public void onComplete(String response) {
@@ -189,8 +212,13 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 		if (view == btnNew) {
 			startActivity(new Intent(this, SendWeibo.class));
 		} else if (view == btnReload) {
-			lvStatuses.setSelection(0);
 			reload();
 		}
+	}
+
+	@Override
+	public void onDestroy() {
+		statusList.saveCache(this);
+		super.onDestroy();
 	}
 }

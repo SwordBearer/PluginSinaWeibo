@@ -24,49 +24,97 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5444ab4d-86ff-42ce-afe0-88ba31a83b79" name="Default" comment="首次将项目迁移到了Android  Studio中，代码结构会发生一些改变">
-      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\hs_err_pid13864.log" afterPath="" />
-      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\hs_err_pid14516.log" afterPath="" />
-      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\hs_err_pid17100.log" afterPath="" />
-      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\hs_err_pid2596.log" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SmallRaccoon/SmallRaccoon.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SmallRaccoon/.idea/libraries/libs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SmallRaccoon/.idea/libraries/smallraccoon.xml" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\anim\progressbar.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_01.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_02.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_03.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_04.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_05.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_06.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_07.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_08.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_09.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_10.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_11.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\drawable-hdpi\loading_12.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\anim\loading.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\drawable-hdpi\loading_0.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\drawable-hdpi\loading_1.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\drawable-hdpi\loading_2.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\drawable-hdpi\loading_3.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\drawable-hdpi\loading_4.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\drawable-hdpi\loading_5.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\drawable-hdpi\loading_6.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\code\github\SmallRaccoon\res\drawable-hdpi\loading_7.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/AccountInfo.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/AccountInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../SmallRaccoon/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/widget/AsyncImageView.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/widget/AsyncImageView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/src/com/weibo/sdk/android/net/AsyncWeiboRunner.java" afterPath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/src/com/weibo/sdk/android/net/AsyncWeiboRunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/BaseBean.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/BaseBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/uitl/BitmapUtil.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/uitl/BitmapUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/cache/CacheUtil.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/cache/CacheUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/DefaultHttpParams.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/DefaultHttpParams.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Home.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Home.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/filter/HtmlFilter.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/filter/HtmlFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/HttpGetHelper.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/HttpGetHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/src/com/weibo/sdk/android/net/HttpManager.java" afterPath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/src/com/weibo/sdk/android/net/HttpManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/HttpPostHelper.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/HttpPostHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/HttpUtils.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/HttpUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/imgCache/ImageCacheManager.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/imgCache/ImageCacheManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/imgCache/LazyImageLoader.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/imgCache/LazyImageLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/src-demo/com/weibo/sdk/android/api/StatusesAPI.java" afterPath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/src-demo/com/weibo/sdk/android/api/StatusesAPI.java" />
-    </list>
-    <list id="f3b69ae3-405d-4942-9a6b-e070533af9bf" name="Rejected commit: Default" comment="首次将项目迁移到了Android  Studio中，代码结构会发生一些改变">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\res\layout\activity_sendweibo.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\src\xmu\swordbearer\sinaplugin\uitl\AccountUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\src\xmu\swordbearer\sinaplugin\uitl\FriendShipUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\code\github\PluginSinaWeibo\src\xmu\swordbearer\sinaplugin\uitl\StatusUtil.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/AccountInfo.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/AccountInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/FollowersActivity.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/FollowersActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/FriendsActivity.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/FriendsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Home.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Home.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/widget/LiveListView.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/widget/LiveListView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/util/MD5Util.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/util/MD5Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/test/MainActivity.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/test/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/util/NetUtil.java" afterPath="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/util/NetUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PluginSinaWeibo.iml" afterPath="$PROJECT_DIR$/PluginSinaWeibo.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/SendWeibo.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/SendWeibo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/api/SinaCommon.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/api/SinaCommon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaFollowersAdapter.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaFollowersAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaFriendsAdapter.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaFriendsAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatus.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatusAdapter.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatusAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatusList.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatusList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaUser.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaUser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/app/SinaWeiboApp.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/app/SinaWeiboApp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Start.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Start.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_account_info.xml" afterPath="$PROJECT_DIR$/res/layout/activity_account_info.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/api/StatusUtil.java" afterPath="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/api/StatusUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/src-demo/com/weibo/sdk/android/api/StatusesAPI.java" afterPath="$PROJECT_DIR$/../swordbearer_fork.sina_weibo.sdk.android/src-demo/com/weibo/sdk/android/api/StatusesAPI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_home.xml" afterPath="$PROJECT_DIR$/res/layout/activity_home.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/list_item_status.xml" afterPath="$PROJECT_DIR$/res/layout/list_item_status.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/../SmallRaccoon/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_sendstatus.xml" afterPath="$PROJECT_DIR$/res/layout/activity_sendstatus.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/color.xml" afterPath="$PROJECT_DIR$/res/values/color.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/res/layout/live_listview_footer.xml" afterPath="$PROJECT_DIR$/../SmallRaccoon/res/layout/live_listview_footer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/res/layout/live_listview_header.xml" afterPath="$PROJECT_DIR$/../SmallRaccoon/res/layout/live_listview_header.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/res/values/live_listview_styles.xml" afterPath="$PROJECT_DIR$/../SmallRaccoon/res/values/live_listview_styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/styles.xml" afterPath="$PROJECT_DIR$/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SmallRaccoon/res/values/styles.xml" afterPath="$PROJECT_DIR$/../SmallRaccoon/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+    <list id="f3b69ae3-405d-4942-9a6b-e070533af9bf" name="Rejected commit: Default" comment="首次将项目迁移到了Android  Studio中，代码结构会发生一些改变" />
     <ignored path="PluginSinaWeibo.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368706257173" ignored="false" />
-    <file path="/a.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368706155295" ignored="false" />
+    <file path="/Dummy.txt" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1369228309315" ignored="false" />
+    <file path="/a.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368966706453" ignored="false" />
     <file path="/a.java" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368705784257" ignored="false" />
     <file path="/sample.java" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368705781782" ignored="false" />
-    <file path="$PROJECT_DIR$/res/values/styles.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368706115946" ignored="false" />
-    <file path="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatusList.java" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368706192384" ignored="false" />
+    <file path="/HtmlFilter.java" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368966499290" ignored="false" />
+    <file path="/a.html" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368966720700" ignored="false" />
+    <file path="/a.groovy" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368966722178" ignored="false" />
+    <file path="$PROJECT_DIR$/../SmallRaccoon/.idea/modules.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368967191862" ignored="false" />
+    <file path="$PROJECT_DIR$/../SmallRaccoon/.idea/compiler.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368967191862" ignored="false" />
+    <file path="$PROJECT_DIR$/../SmallRaccoon/.idea/misc.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368967191862" ignored="false" />
+    <file path="$PROJECT_DIR$/../SmallRaccoon/.idea/scopes/scope_settings.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368967191862" ignored="false" />
+    <file path="$PROJECT_DIR$/../SmallRaccoon/.idea/encodings.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368967191862" ignored="false" />
+    <file path="$PROJECT_DIR$/../SmallRaccoon/.idea/vcs.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368967191862" ignored="false" />
+    <file path="$PROJECT_DIR$/../SmallRaccoon/.idea/workspace.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368968520021" ignored="false" />
+    <file path="$PROJECT_DIR$/../SmallRaccoon/.idea/copyright/profiles_settings.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368967191862" ignored="false" />
+    <file path="/fragment.java" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368967828133" ignored="false" />
+    <file path="/progress.xml" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368968536407" ignored="false" />
+    <file path="/Home.java" changelist="5444ab4d-86ff-42ce-afe0-88ba31a83b79" time="1368968677885" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +129,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -118,6 +165,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -126,7 +174,24 @@
     <favorites_list name="PluginSinaWeibo" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Home.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Home.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="74" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.033101045">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2076#2166#0" expanded="false" />
+                <element signature="e#2161#2162#0" expanded="false" />
+                <element signature="e#2200#2291#0" expanded="false" />
+                <element signature="e#2286#2287#0" expanded="false" />
+                <element signature="e#3868#3869#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -149,6 +214,9 @@
         <option value="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatusList.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/layout-xlarge/activity_account_preview.xml" />
+        <option value="$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/filter/HtmlFilter.java" />
+        <option value="$PROJECT_DIR$/res/anim/progress.xml" />
+        <option value="$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Home.java" />
       </list>
     </option>
   </component>
@@ -184,6 +252,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -192,27 +262,97 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PluginSinaWeibo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PluginSinaWeibo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PluginSinaWeibo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PluginSinaWeibo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PluginSinaWeibo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PluginSinaWeibo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.sourceCode.XML" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_ca477551eeb4aea0e4ae9fcd3358bd96720bb5c8/bin/git.exe" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="settings.github" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SmallRaccoon/libs/httpmime-4.2.2.jar!/" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="19761202" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="41" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager" selected="Android Application.PluginSinaWeibo">
+  <component name="RunManager" selected="Android Tests.PluginSinaWeibo">
+    <configuration default="false" name="All in PluginSinaWeibo" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="PluginSinaWeibo" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="false" name="PluginSinaWeibo" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true">
       <module name="PluginSinaWeibo" />
       <option name="TESTING_TYPE" value="0" />
@@ -220,7 +360,7 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -311,7 +451,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -319,34 +459,19 @@
       <option name="DISABLE_BOOT_ANIMATION" value="false" />
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PluginSinaWeibo" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="PluginSinaWeibo" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <RunnerSettings RunnerId="AndroidDebugRunner" />
-      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <option name="CLEAR_LOGCAT" value="true" />
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Android Application.PluginSinaWeibo" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.All in PluginSinaWeibo" />
       <item index="1" class="java.lang.String" itemvalue="Android Tests.PluginSinaWeibo" />
     </list>
     <recent_temporary>
-      <list size="1">
+      <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Android Tests.PluginSinaWeibo" />
+        <item index="1" class="java.lang.String" itemvalue="Android Tests.PluginSinaWeibo" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in PluginSinaWeibo" />
+        <item index="3" class="java.lang.String" itemvalue="Android Tests.PluginSinaWeibo" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -387,6 +512,10 @@
       <created>1368701822809</created>
       <updated>1368701822809</updated>
       <workItem from="1368701830776" duration="3142000" />
+      <workItem from="1368965328818" duration="36000" />
+      <workItem from="1368965868585" duration="1095000" />
+      <workItem from="1368967033304" duration="1673000" />
+      <workItem from="1369228298777" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="首次将项目迁移到了Android  Studio中，代码结构会发生一些改变">
       <created>1368706265881</created>
@@ -396,36 +525,57 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3142000" />
+    <option name="totallyTimeSpent" value="5956000" />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27878788" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27272728" sideWeight="0.6705686" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24318182" sideWeight="0.6705686" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2560606" sideWeight="0.6705686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27878788" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27272728" sideWeight="0.6705686" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -490,53 +640,29 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/SendWeibo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="23" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/DevelopPrograms/adt-bundle-windows-x86-20130219/sdk/sources/android-17/android/app/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1879" column="16" selection-start="83135" selection-end="83135" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="1879" column="16" selection-start="83135" selection-end="83135" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="68" selection-start="250" selection-end="250" vertical-scroll-proportion="0.24">
-          <folding />
-        </state>
+        <state line="6" column="68" selection-start="250" selection-end="250" vertical-scroll-proportion="0.24" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/api/SinaCommon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="28" selection-start="623" selection-end="623" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="22" column="28" selection-start="623" selection-end="623" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/AccountInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="13" selection-start="741" selection-end="741" vertical-scroll-proportion="-0.27466667">
-          <folding />
-        </state>
+        <state line="29" column="13" selection-start="741" selection-end="741" vertical-scroll-proportion="-0.27466667" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/bean/SinaStatusList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="11" selection-start="571" selection-end="571" vertical-scroll-proportion="0.33142856">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="56" selection-start="1576" selection-end="1576" vertical-scroll-proportion="1.576">
-          <folding />
-        </state>
+        <state line="24" column="11" selection-start="571" selection-end="571" vertical-scroll-proportion="0.33142856" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_account_preview.xml">
@@ -544,9 +670,7 @@
         <state />
       </provider>
       <provider editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="32" column="0" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout-xlarge/activity_account_preview.xml">
@@ -554,18 +678,150 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="19" selection-start="1976" selection-end="1976" vertical-scroll-proportion="-1.4901961">
-          <folding />
-        </state>
+        <state line="52" column="19" selection-start="1976" selection-end="1976" vertical-scroll-proportion="-1.4901961" />
+      </provider>
+    </entry>
+    <entry file="jar://D:/DevelopPrograms/adt-bundle-windows-x86-20130219/sdk/platforms/android-4/android.jar!/org/xml/sax/Parser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="0.13286713" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/HttpGetHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="0.3986014" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/http/DefaultHttpParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="11" selection-start="55" selection-end="55" vertical-scroll-proportion="0.06797853" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../SmallRaccoon/src/xmu/swordbearer/smallraccoon/filter/HtmlFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="16" selection-start="231" selection-end="231" vertical-scroll-proportion="-1.584">
-          <folding />
+        <state line="15" column="25" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="350" selection-end="350" vertical-scroll-proportion="0.50666666" />
+      </provider>
+    </entry>
+    <entry file="file://D:/DevelopPrograms/adt-bundle-windows-x86-20130219/sdk/sources/android-17/java/net/URLClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="32" selection-start="1996" selection-end="1996" vertical-scroll-proportion="0.3986014" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/anim/progress.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="30" selection-start="178" selection-end="178" vertical-scroll-proportion="0.13286713" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SmallRaccoon/res/anim/loading.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="48" selection-start="326" selection-end="326" vertical-scroll-proportion="0.29895106" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xmu/swordbearer/sinaplugin/ui/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="74" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.033101045">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2076#2166#0" expanded="false" />
+            <element signature="e#2161#2162#0" expanded="false" />
+            <element signature="e#2200#2291#0" expanded="false" />
+            <element signature="e#2286#2287#0" expanded="false" />
+            <element signature="e#3868#3869#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Android</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>SmallRaccoon</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>Android 4.2.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>android-support-v4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 

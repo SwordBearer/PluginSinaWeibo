@@ -13,6 +13,12 @@ import com.weibo.sdk.android.WeiboAuthListener;
 import com.weibo.sdk.android.WeiboDialogError;
 import com.weibo.sdk.android.WeiboException;
 
+/**
+ * 作为插件的入口
+ * 
+ * @author SwordBearer
+ * 
+ */
 public class Start extends Activity {
 	protected static final String TAG = "Start";
 
@@ -23,7 +29,7 @@ public class Start extends Activity {
 			Log.e(TAG, "auth()");
 			AccountUtil.auth(this, authListener);
 		} else {
-			gotoHome();
+			gotoMain();
 		}
 	}
 
@@ -47,8 +53,7 @@ public class Start extends Activity {
 		public void onComplete(Bundle values) {
 			String token = values.getString("access_token");
 			String expires_in = values.getString("expires_in");
-			Oauth2AccessToken oauth2AccessToken = new Oauth2AccessToken(token,
-					expires_in);
+			Oauth2AccessToken oauth2AccessToken = new Oauth2AccessToken(token, expires_in);
 			AccessTokenKeeper.keepAccessToken(Start.this, oauth2AccessToken);
 			if (oauth2AccessToken.isSessionValid()) {
 			} else {
@@ -56,7 +61,7 @@ public class Start extends Activity {
 				finish();
 				return;
 			}
-			gotoHome();
+			gotoMain();
 		}
 
 		@Override
@@ -65,8 +70,8 @@ public class Start extends Activity {
 		}
 	};
 
-	private void gotoHome() {
-		Intent intent = new Intent(this, Home.class);
+	private void gotoMain() {
+		Intent intent = new Intent(this, Main.class);
 		startActivity(intent);
 		finish();
 	}
