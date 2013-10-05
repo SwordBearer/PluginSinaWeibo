@@ -9,13 +9,14 @@ import xmu.swordbearer.sinaplugin.api.SinaCommon;
 import xmu.swordbearer.sinaplugin.bean.BaseSinaUsersAdapter;
 import xmu.swordbearer.sinaplugin.bean.SinaUser;
 import xmu.swordbearer.sinaplugin.bean.SinaUserList;
-import xmu.swordbearer.smallraccoon.widget.LiveListView;
-import xmu.swordbearer.smallraccoon.widget.LiveListView.OnMoreListener;
+import xmu.swordbearer.sinaplugin.widget.LiveListView;
+import xmu.swordbearer.sinaplugin.widget.LiveListView.OnMoreListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -43,7 +44,7 @@ public abstract class BaseSinaUserListActivity extends Activity implements andro
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.activity_followers);
+		this.setContentView(R.layout.activity_sinausers);
 		initView();
 	}
 
@@ -61,7 +62,6 @@ public abstract class BaseSinaUserListActivity extends Activity implements andro
 			finish();
 			return;
 		}
-
 		userList = new SinaUserList();
 
 		btnBack.setOnClickListener(this);
@@ -81,6 +81,7 @@ public abstract class BaseSinaUserListActivity extends Activity implements andro
 				startActivity(intent);
 			}
 		});
+		Log.e(TAG, "444444444444444444444444");
 	}
 
 	protected Handler handler = new Handler() {

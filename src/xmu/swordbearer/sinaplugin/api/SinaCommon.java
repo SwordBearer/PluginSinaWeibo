@@ -26,6 +26,10 @@ public class SinaCommon {
 	public static final String CACEH_KEY_CUR_ACCOUNT = "sina_cur_user";
 
 	public static final int PAGE_STATUS_SIZE = 20;
+	// 添加Pin User的类型
+	public static final int CHOOSE_TYPE_FRIENDS = 0;
+	public static final int CHOOSE_TYPE_FOLLOWERS = 1;
+	public static final int CHOOSE_TYPE_SEARCH = 2;
 
 	/**
 	 * 事件结果处理消息

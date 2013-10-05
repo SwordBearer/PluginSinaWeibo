@@ -7,10 +7,10 @@ import xmu.swordbearer.sinaplugin.api.SinaCommon;
 import xmu.swordbearer.sinaplugin.api.StatusUtil;
 import xmu.swordbearer.sinaplugin.bean.SinaStatusAdapter;
 import xmu.swordbearer.sinaplugin.bean.SinaStatusList;
+import xmu.swordbearer.sinaplugin.widget.LiveListView;
+import xmu.swordbearer.sinaplugin.widget.LiveListView.OnMoreListener;
+import xmu.swordbearer.sinaplugin.widget.LiveListView.OnRefreshListener;
 import xmu.swordbearer.smallraccoon.util.NetUtil;
-import xmu.swordbearer.smallraccoon.widget.LiveListView;
-import xmu.swordbearer.smallraccoon.widget.LiveListView.OnMoreListener;
-import xmu.swordbearer.smallraccoon.widget.LiveListView.OnRefreshListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +29,6 @@ import com.weibo.sdk.android.net.RequestListener;
 
 /**
  * 主页：显示关注的用户的微博
- * 
  * @author SwordBearer
  * 
  */
@@ -43,13 +42,12 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 	private ImageButton btnNew;
 	private ImageButton btnReload;
 	private ImageView progressView;
-	Animation progressAnim;
+	private Animation progressAnim;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_home);
-		Log.e(TAG, "FUCKFDFDSF");
 		initViews();
 	}
 
@@ -100,6 +98,20 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 		}
 	}
 
+	//
+	// /**
+	// * 加载缓存
+	// */
+	// private void loadCache() {
+	// new Thread(new Runnable() {
+	// @Override
+	// public void run() {
+	// statusList.readCache(Home.this);
+	// handler.sendEmptyMessage(SinaCommon.GET_CACHED_STATUS_COMPLETE);
+	// }
+	// }).start();
+	// }
+
 	/**
 	 * 加载最新微博
 	 */
@@ -110,13 +122,7 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 			StatusUtil.getFriendsTimeline(this, statusList.getSince_id(), 0, SinaCommon.PAGE_STATUS_SIZE, listenerRefresh);
 		} else {
 			Toast.makeText(this, "未连接到网络，无法获取最新微博...", Toast.LENGTH_LONG).show();
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					statusList.readCache(Home.this);
-					handler.sendEmptyMessage(SinaCommon.GET_CACHED_STATUS_COMPLETE);
-				}
-			}).start();
+			// loadCache();
 		}
 	}
 
@@ -218,7 +224,7 @@ public class Home extends Activity implements android.view.View.OnClickListener 
 
 	@Override
 	public void onDestroy() {
-		statusList.saveCache(this);
+		// statusList.saveCache(this);
 		super.onDestroy();
 	}
 }

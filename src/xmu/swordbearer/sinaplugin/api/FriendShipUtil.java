@@ -24,8 +24,7 @@ public class FriendShipUtil {
 	 * @param listener
 	 * @param cursor
 	 */
-	public static void getFollowers(Context context, long uid,
-			final RequestListener listener, final int cursor) {
+	public static void getFollowers(Context context, long uid, final RequestListener listener, final int cursor) {
 		Oauth2AccessToken toke = AccessTokenKeeper.readAccessToken(context);
 		final FriendshipsAPI friendshipsAPI = new FriendshipsAPI(toke);
 		friendshipsAPI.followers(uid, PAGE_USER_SIZE, cursor, false, listener);
@@ -39,8 +38,7 @@ public class FriendShipUtil {
 	 * @param cursor
 	 */
 	@Deprecated
-	public static void getMyFollowers(Context ctx,
-			final RequestListener listener, final int cursor) {
+	public static void getMyFollowers(Context ctx, final RequestListener listener, final int cursor) {
 		/*
 		 * 如果已经存在了我的uid，则直接获取账号信息 ,否则，需要根据token先获得userId,然后根据UserId去得到帐号信息
 		 */
@@ -52,18 +50,15 @@ public class FriendShipUtil {
 			AccountAPI accountAPI = new AccountAPI(token);
 			final FriendshipsAPI friendshipsAPI = new FriendshipsAPI(token);
 			RequestListener uid_listener = new RequestListener() {
-				public void onIOException(IOException arg0) {
-				}
+				public void onIOException(IOException arg0) {}
 
-				public void onError(WeiboException arg0) {
-				}
+				public void onError(WeiboException arg0) {}
 
 				public void onComplete(String response) {
 					try {
 						JSONObject json = new JSONObject(response);
 						long uid = json.getLong("uid");
-						friendshipsAPI.followers(uid, PAGE_USER_SIZE, cursor,
-								false, listener);
+						friendshipsAPI.followers(uid, PAGE_USER_SIZE, cursor, true, listener);
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
@@ -81,11 +76,10 @@ public class FriendShipUtil {
 	 * @param listener
 	 * @param cursor
 	 */
-	public static void getFriends(Context context, long uid,
-			RequestListener listener, final int cursor) {
+	public static void getFriends(Context context, long uid, RequestListener listener, final int cursor) {
 		Oauth2AccessToken toke = AccessTokenKeeper.readAccessToken(context);
 		final FriendshipsAPI friendshipsAPI = new FriendshipsAPI(toke);
-		friendshipsAPI.friends(uid, PAGE_USER_SIZE, cursor, false, listener);
+		friendshipsAPI.friends(uid, PAGE_USER_SIZE, cursor, true, listener);
 	}
 
 	/**
@@ -95,8 +89,7 @@ public class FriendShipUtil {
 	 * @param target_id对方的id
 	 * @param listener
 	 */
-	public static void getRelationship(Context context, final long target_id,
-			final RequestListener listener) {
+	public static void getRelationship(Context context, final long target_id, final RequestListener listener) {
 		Oauth2AccessToken token = AccessTokenKeeper.readAccessToken(context);
 		final FriendshipsAPI friendshipsAPI = new FriendshipsAPI(token);
 		long my_uid = AccountUtil.readUid(context);
@@ -105,11 +98,9 @@ public class FriendShipUtil {
 		} else {
 			AccountAPI accountAPI = new AccountAPI(token);
 			RequestListener uid_listener = new RequestListener() {
-				public void onIOException(IOException arg0) {
-				}
+				public void onIOException(IOException arg0) {}
 
-				public void onError(WeiboException arg0) {
-				}
+				public void onError(WeiboException arg0) {}
 
 				public void onComplete(String response) {
 					try {
@@ -124,4 +115,12 @@ public class FriendShipUtil {
 			accountAPI.getUid(uid_listener);
 		}
 	}
+
+	/**
+	 * 通过个性化域名获取用户资料
+	 * 
+	 * @param context
+	 * @param domainName
+	 */
+	public static void searchByDomainName(Context context, String domainName, RequestListener requestListener) {}
 }

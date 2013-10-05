@@ -16,6 +16,9 @@
     <string name="tlt_settings">个性设置</string>
     <string name="tlt_account_preview">个人中心</string>
     <string name="tlt_pineduser">PinedUser</string>
+    <string name="tlt_choose_pineduser">添加关注</string>
+    <!-- hints -->
+    <string name="hint_username">请输入要搜索的用户昵称</string>
 
     <!-- 账户详细 -->
     <string name="edit">编辑</string>
@@ -27,5 +30,8 @@
     <string name="favourites">收藏</string>
     <string name="address">地址: </string>
     <string name="description">简介: </string>
+
+    <!--  -->
+    <string name="search">搜索</string>
 
 </resources>

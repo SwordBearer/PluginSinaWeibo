@@ -100,7 +100,13 @@ public class AccountInfo extends Activity implements android.view.View.OnClickLi
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				tvName.setText(user.getName());
+				String remark = user.getRemark();
+				if (remark.equals("") || remark == null) {
+					tvName.setText(user.getName());
+				} else {
+
+					tvName.setText(remark + "[" + user.getName() + "]");
+				}
 				tvDesc.setText(user.getDescription());
 				tvAddr.setText(user.getLocation());
 

@@ -43,10 +43,9 @@
             android:src="@drawable/selector_btn_home" />
     </LinearLayout>
 
-    <xmu.swordbearer.smallraccoon.widget.LiveListView
+    <xmu.swordbearer.sinaplugin.widget.LiveListView
         android:id="@+id/followers_listview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-    </xmu.swordbearer.smallraccoon.widget.LiveListView>
+        android:layout_height="fill_parent" />
 
 </LinearLayout>

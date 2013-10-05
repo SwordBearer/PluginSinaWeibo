@@ -6,5 +6,8 @@
     <color name="dark_blue">#104E8B</color>
     <color name="light_blue">#1E90FF</color>
     <color name="status_item_sel">#C0C0C0</color>
+    <!--  -->
+    <color name="radio_checked">#7EC0EE</color>
+    <color name="radio_normal">#CFCFCF</color>
 
 </resources>

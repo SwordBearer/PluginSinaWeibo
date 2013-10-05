@@ -52,7 +52,7 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <xmu.swordbearer.smallraccoon.widget.LiveListView
+    <xmu.swordbearer.sinaplugin.widget.LiveListView
         android:id="@+id/home_listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />

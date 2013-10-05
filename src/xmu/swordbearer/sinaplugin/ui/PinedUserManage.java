@@ -4,11 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xmu.swordbearer.sinaplugin.R;
+import xmu.swordbearer.sinaplugin.api.SinaCommon;
 import xmu.swordbearer.sinaplugin.app.SinaWeiboApp;
+import xmu.swordbearer.sinaplugin.bean.SinaUser;
 import xmu.swordbearer.sinaplugin.pin.PinHandler;
 import xmu.swordbearer.sinaplugin.pin.PinedUser;
+import xmu.swordbearer.smallraccoon.cache.CacheUtil;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +60,61 @@ public class PinedUserManage extends Activity implements OnClickListener {
 		pinedUserList = PinHandler.getPinList(this);
 		adapter = new PinedUserAdapter(this);
 		pinedUseListView.setAdapter(adapter);
+	}
+
+	/**
+	 * 更新PinedUser列表
+	 */
+	private void updatePinedList() {
+		pinedUserList = PinHandler.getPinList(this);
+		adapter.notifyDataSetChanged();
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (v == btnBack) {
+			finish();
+		} else if (v == btnAdd) {
+			showChooseDialog();
+			// Intent goToChooseUser = new Intent(PinedUserManage.this, ChoosePinedUser.class);
+			// startActivityForResult(goToChooseUser, Activity.RESULT_OK);
+		}
+	}
+
+	private void showChooseDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("请选择添加方式");
+		CharSequence[] types = { "关注列表", "粉丝列表", "搜索" };
+		builder.setSingleChoiceItems(types, -1, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				if (which == 0) {
+					Intent intent = new Intent(PinedUserManage.this, FriendsActivity.class);
+					SinaUser user = (SinaUser) CacheUtil.readCache(PinedUserManage.this, SinaCommon.CACEH_KEY_CUR_ACCOUNT);
+					intent.putExtra("uid", user.getId());
+					startActivityForResult(intent, 1);
+				} else if (which == 1) {
+					Intent intent = new Intent(PinedUserManage.this, FollowersActivity.class);
+					SinaUser user = (SinaUser) CacheUtil.readCache(PinedUserManage.this, SinaCommon.CACEH_KEY_CUR_ACCOUNT);
+					intent.putExtra("uid", user.getId());
+					startActivityForResult(intent, 1);
+				} else if (which == 2) {
+				}
+				dialog.cancel();
+			}
+		});
+		builder.show();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 1) {
+			if (resultCode == Activity.RESULT_OK) {
+				updatePinedList();
+			}
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+
 	}
 
 	private class PinedUserAdapter extends BaseAdapter {
@@ -102,17 +163,6 @@ public class PinedUserManage extends Activity implements OnClickListener {
 			item.name.setText(pinedUser.getName());
 			container.setTag(item);
 			return container;
-		}
-	}
-
-	private void addUser() {}
-
-	@Override
-	public void onClick(View v) {
-		if (v == btnBack) {
-			finish();
-		} else if (v == btnAdd) {
-			addUser();
 		}
 	}
 }

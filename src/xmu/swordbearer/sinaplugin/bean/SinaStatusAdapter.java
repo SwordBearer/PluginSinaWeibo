@@ -58,37 +58,25 @@ public class SinaStatusAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = inflater.inflate(R.layout.list_item_status, null);
 			holder = new ViewHolder();
-			holder.avater = (ImageView) convertView
-					.findViewById(R.id.status_listitem_avater);
-			holder.tvName = (TextView) convertView
-					.findViewById(R.id.status_listitem_name);
-			holder.tvRedirect = (TextView) convertView
-					.findViewById(R.id.status_listitem_redirect);
-			holder.tvComment = (TextView) convertView
-					.findViewById(R.id.status_listitem_comment);
-			holder.tvContent = (TextView) convertView
-					.findViewById(R.id.status_listitem_content);
+			holder.avater = (ImageView) convertView.findViewById(R.id.status_listitem_avater);
+			holder.tvName = (TextView) convertView.findViewById(R.id.status_listitem_name);
+			holder.tvRedirect = (TextView) convertView.findViewById(R.id.status_listitem_redirect);
+			holder.tvComment = (TextView) convertView.findViewById(R.id.status_listitem_comment);
+			holder.tvContent = (TextView) convertView.findViewById(R.id.status_listitem_content);
 
-			holder.contentPic = (ImageView) convertView
-					.findViewById(R.id.status_listitem_pic);
-			holder.retweetContainer = (View) convertView
-					.findViewById(R.id.status_listitem_retweet_container);
-			holder.tvRetweetContent = (TextView) convertView
-					.findViewById(R.id.status_listitem_retweet_content);
-			holder.reTweetPic = (ImageView) convertView
-					.findViewById(R.id.status_listitem_retweet_pic);
-			holder.tvSrc = (TextView) convertView
-					.findViewById(R.id.status_listitem_src);
-			holder.tvTime = (TextView) convertView
-					.findViewById(R.id.status_listitem_time);
+			holder.contentPic = (ImageView) convertView.findViewById(R.id.status_listitem_pic);
+			holder.retweetContainer = (View) convertView.findViewById(R.id.status_listitem_retweet_container);
+			holder.tvRetweetContent = (TextView) convertView.findViewById(R.id.status_listitem_retweet_content);
+			holder.reTweetPic = (ImageView) convertView.findViewById(R.id.status_listitem_retweet_pic);
+			holder.tvSrc = (TextView) convertView.findViewById(R.id.status_listitem_src);
+			holder.tvTime = (TextView) convertView.findViewById(R.id.status_listitem_time);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		final SinaStatus status = list.get(pos);
 		SinaUser user = status.getUser();
-		SinaWeiboApp
-				.loadImage(user.getProfile_image_url(), holder.avater, true);
+		SinaWeiboApp.loadImage(user.getProfile_image_url(), holder.avater, true);
 		String thumbnail_url = status.getThumbnail_pic();
 		if (thumbnail_url != null) {
 			SinaWeiboApp.loadImage(thumbnail_url, holder.contentPic, false);
@@ -107,8 +95,11 @@ public class SinaStatusAdapter extends BaseAdapter {
 		} else {
 			holder.retweetContainer.setVisibility(View.GONE);
 		}
-
-		holder.tvName.setText(user.getName());
+		String remark = user.getRemark();
+		if (remark.equals("") || remark == null)
+			holder.tvName.setText(user.getName());
+		else
+			holder.tvName.setText(remark + "( " + user.getName() + " )");
 		holder.tvRedirect.setText(status.getReposts_count() + "");
 		holder.tvComment.setText(status.getComments_count() + "");
 		holder.tvContent.setText(status.getText());

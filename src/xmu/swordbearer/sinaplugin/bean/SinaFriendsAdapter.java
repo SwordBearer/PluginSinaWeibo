@@ -29,21 +29,22 @@ public class SinaFriendsAdapter extends BaseSinaUsersAdapter {
 		if (convertView == null) {
 			convertView = inflater.inflate(R.layout.list_item_follower, null);
 			holder = new ViewHolder();
-			holder.mImg = (ImageView) convertView
-					.findViewById(R.id.follower_listitem_avatar);
-			holder.mName = (TextView) convertView
-					.findViewById(R.id.follow_listitem_name);
-			holder.mStatus = (TextView) convertView
-					.findViewById(R.id.follow_listitem_status);
-			holder.mWatch = (Button) convertView
-					.findViewById(R.id.follower_listitem_watch);
+			holder.mImg = (ImageView) convertView.findViewById(R.id.follower_listitem_avatar);
+			holder.mName = (TextView) convertView.findViewById(R.id.follow_listitem_name);
+			holder.mStatus = (TextView) convertView.findViewById(R.id.follow_listitem_status);
+			holder.mWatch = (Button) convertView.findViewById(R.id.follower_listitem_watch);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		SinaUser user = list.get(pos);
 		SinaWeiboApp.loadImage(user.getProfile_image_url(), holder.mImg, false);
-		holder.mName.setText(user.getScreen_name());
+		String remark = user.getRemark();
+		if (remark.equals("") || remark == null) {
+			holder.mName.setText(user.getScreen_name());
+		} else {
+			holder.mName.setText(remark + "( " + user.getScreen_name() + " )");
+		}
 		holder.mStatus.setText(user.getDescription());
 		return convertView;
 	}

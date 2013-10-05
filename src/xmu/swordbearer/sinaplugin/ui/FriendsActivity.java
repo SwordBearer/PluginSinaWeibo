@@ -7,7 +7,6 @@ import xmu.swordbearer.sinaplugin.bean.SinaFollowersAdapter;
  * 关注的用户列表
  * 
  * @author SwordBearer
- * 
  */
 public class FriendsActivity extends BaseSinaUserListActivity {
 	@Override

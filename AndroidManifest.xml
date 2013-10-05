@@ -74,6 +74,7 @@
         </activity>
         <activity android:name=".ui.Settings" >
         </activity>
+        <activity android:name=".ui.ChoosePinedUser"></activity>
     </application>
 
 </manifest>

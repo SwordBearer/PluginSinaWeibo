@@ -24,6 +24,16 @@ public class SinaStatusList implements Serializable {
 	private static final String CACHE_KEY = "sinaweibo_cache_statuslist";
 
 	/**
+	 * 清空数据
+	 */
+	public void clear() {
+		this.statuses.clear();
+		this.since_id = 0;
+		this.max_id = 0;
+		totalNumber = 0;
+	}
+
+	/**
 	 * 向头部添加数据
 	 * 
 	 * @param jsonStr
@@ -103,24 +113,23 @@ public class SinaStatusList implements Serializable {
 	public long getMax_id() {
 		return max_id;
 	}
-
-	/**
-	 * 将微博数据缓存
-	 * 
-	 * @param context
-	 */
-	public void saveCache(Context context) {
-		CacheUtil.saveCache(context, CACHE_KEY, this);
-	}
-
-	/**
-	 * 从微博中读取缓存
-	 * 
-	 * @param context
-	 */
-	public void readCache(Context context) {
-		SinaStatusList tempList = (SinaStatusList) CacheUtil.readCache(context, CACHE_KEY);
-		statuses.addAll(statuses.size(), tempList.getStatuses());
-	}
-
+	//
+	// /**
+	// * 将微博数据缓存
+	// *
+	// * @param context
+	// */
+	// public void saveCache(Context context) {
+	// CacheUtil.saveCache(context, CACHE_KEY, this);
+	// }
+	//
+	// /**
+	// * 从微博中读取缓存
+	// *
+	// * @param context
+	// */
+	// public void readCache(Context context) {
+	// SinaStatusList tempList = (SinaStatusList) CacheUtil.readCache(context, CACHE_KEY);
+	// statuses.addAll(statuses.size(), tempList.getStatuses());
+	// }
 }
